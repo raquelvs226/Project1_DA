@@ -1,7 +1,7 @@
 #ifndef PROJECT1_PARSER_H
 #define PROJECT1_PARSER_H
 
-#include "data.h"
+#include "../data.h"
 #include <string>
 #include <vector>
 

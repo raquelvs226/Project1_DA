@@ -1,5 +1,5 @@
 #include "parser.h"
-#include "data.h"
+#include "../data.h"
 
 #include <fstream>
 #include <sstream>
