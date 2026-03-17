@@ -1,153 +1,185 @@
-#include <iostream>
+#include "parser.h"
+#include "data.h"
+
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <cctype>
+#include <string>
 #include <vector>
-#include "data.h"
 
 using namespace std;
 
-vector<Submission> submissions;
-vector<Reviewer> reviewers;
-Parameters params;
-Control control;
+string trim(const string &str) {
+    string result = str;
 
-void parseCSV(string filename) {
+    result.erase(result.begin(), find_if(result.begin(), result.end(), [](unsigned char ch) {
+        return !isspace(ch);
+    }));
+
+    result.erase(find_if(result.rbegin(), result.rend(), [](unsigned char ch) {
+        return !isspace(ch);
+    }).base(), result.end());
+
+    return result;
+}
+
+string removeComment(const string &line) {
+    size_t pos = line.find('#');
+    if (pos == string::npos) {
+        return line;
+    }
+    return line.substr(0, pos);
+}
+
+string removeQuotes(const string &str) {
+    string result = trim(str);
+
+    if (result.size() >= 2) {
+        if ((result.front() == '"' && result.back() == '"') ||
+            (result.front() == '\'' && result.back() == '\'')) {
+            result = result.substr(1, result.size() - 2);
+        }
+    }
+
+    return result;
+}
+
+int parseOptionalInt(const string &str) {
+    string value = trim(str);
+    if (value.empty()) {
+        return -1;
+    }
+    return stoi(value);
+}
+
+void parseCSV(const string &filename, vector<Submission> &submissions, vector<Reviewer> &reviewers, Parameters &params, Control &control) {
+
+    submissions.clear();
+    reviewers.clear();
+
+    params = {0, 0, 0, 0, 0, 0};
+    control = {0, 0, ""};
 
     ifstream file(filename);
     string line;
-
-    enum Section {
-        NONE,
-        SUBMISSIONS,
-        REVIEWERS,
-        PARAMETERS,
-        CONTROL
-    };
-
-    Section current = NONE;
+    string section;
 
     while (getline(file, line)) {
+        line = trim(line);
 
-        if (line.empty()) continue;
+        if (line.empty()) {
+            continue;
+        }
 
         if (line == "#Submissions") {
-            current = SUBMISSIONS;
+            section = "Submissions";
             continue;
         }
 
         if (line == "#Reviewers") {
-            current = REVIEWERS;
+            section = "Reviewers";
             continue;
         }
 
         if (line == "#Parameters") {
-            current = PARAMETERS;
+            section = "Parameters";
             continue;
         }
 
         if (line == "#Control") {
-            current = CONTROL;
+            section = "Control";
             continue;
         }
 
-        if (line[0] == '#') continue;
+        line = trim(removeComment(line));
 
-        stringstream ss(line);
-        string field;
-
-        if (current == SUBMISSIONS) {
-
-            Submission s;
-
-            getline(ss, field, ',');
-            s.id = stoi(field);
-
-            getline(ss, s.title, ',');
-
-            getline(ss, s.authors, ',');
-
-            getline(ss, s.email, ',');
-
-            getline(ss, field, ',');
-            s.primary = stoi(field);
-
-            if (getline(ss, field, ',')) {
-                if (field.empty())
-                    s.secondary = -1;
-                else
-                    s.secondary = stoi(field);
-            }
-
-            submissions.push_back(s);
+        if (line.empty()) {
+            continue;
         }
 
-        else if (current == REVIEWERS) {
+        stringstream lineStream(line);
 
-            Reviewer r;
+        if (section == "Submissions") {
+            Submission submission;
+            string idStr, primaryStr, secondaryStr;
 
-            getline(ss, field, ',');
-            r.id = stoi(field);
+            getline(lineStream, idStr, ',');
+            getline(lineStream, submission.title, ',');
+            getline(lineStream, submission.authors, ',');
+            getline(lineStream, submission.email, ',');
+            getline(lineStream, primaryStr, ',');
+            getline(lineStream, secondaryStr);
 
-            getline(ss, r.name, ',');
+            submission.id = stoi(trim(idStr));
+            submission.title = removeQuotes(submission.title);
+            submission.authors = removeQuotes(submission.authors);
+            submission.email = removeQuotes(submission.email);
+            submission.primary = stoi(trim(primaryStr));
+            submission.secondary = parseOptionalInt(secondaryStr);
 
-            getline(ss, r.email, ',');
-
-            getline(ss, field, ',');
-            r.primary = stoi(field);
-
-            if (getline(ss, field, ',')) {
-                if (field.empty())
-                    r.secondary = -1;
-                else
-                    r.secondary = stoi(field);
-            }
-
-            reviewers.push_back(r);
+            submissions.push_back(submission);
         }
 
-        else if (current == PARAMETERS) {
+        else if (section == "Reviewers") {
+            Reviewer reviewer;
+            string idStr, primaryStr, secondaryStr;
 
-            getline(ss, field, ',');
-            string name = field;
+            getline(lineStream, idStr, ',');
+            getline(lineStream, reviewer.name, ',');
+            getline(lineStream, reviewer.email, ',');
+            getline(lineStream, primaryStr, ',');
+            getline(lineStream, secondaryStr);
 
-            getline(ss, field, ',');
+            reviewer.id = stoi(trim(idStr));
+            reviewer.name = removeQuotes(reviewer.name);
+            reviewer.email = removeQuotes(reviewer.email);
+            reviewer.primary = stoi(trim(primaryStr));
+            reviewer.secondary = parseOptionalInt(secondaryStr);
 
-            int value = stoi(field);
+            reviewers.push_back(reviewer);
+        }
 
-            if (name == "MinReviewsPerSubmission")
+        else if (section == "Parameters") {
+            string key, valueStr;
+            getline(lineStream, key, ',');
+            getline(lineStream, valueStr);
+
+            key = trim(key);
+            int value = stoi(trim(valueStr));
+
+            if (key == "MinReviewsPerSubmission") {
                 params.MinReviewsPerSubmission = value;
-
-            else if (name == "MaxReviewsPerReviewer")
+            } else if (key == "MaxReviewsPerReviewer") {
                 params.MaxReviewsPerReviewer = value;
-
-            else if (name == "PrimaryReviewerExpertise")
+            } else if (key == "PrimaryReviewerExpertise") {
                 params.PrimaryReviewerExpertise = value;
-
-            else if (name == "SecondaryReviewerExpertise")
+            } else if (key == "SecondaryReviewerExpertise") {
                 params.SecondaryReviewerExpertise = value;
-
-            else if (name == "PrimarySubmissionDomain")
+            } else if (key == "PrimarySubmissionDomain") {
                 params.PrimarySubmissionDomain = value;
-
-            else if (name == "SecondarySubmissionDomain")
+            } else if (key == "SecondarySubmissionDomain") {
                 params.SecondarySubmissionDomain = value;
+            }
         }
 
-        else if (current == CONTROL) {
+        else if (section == "Control") {
+            string key, value;
+            getline(lineStream, key, ',');
+            getline(lineStream, value);
 
-            getline(ss, field, ',');
-            string name = field;
+            key = trim(key);
+            value = trim(value);
 
-            getline(ss, field, ',');
-
-            if (name == "GenerateAssignments")
-                control.GenerateAssignments = stoi(field);
-
-            else if (name == "RiskAnalysis")
-                control.RiskAnalysis = stoi(field);
-
-            else if (name == "OutputFileName")
-                control.OutputFileName = field;
+            if (key == "GenerateAssignments") {
+                control.GenerateAssignments = stoi(value);
+            } else if (key == "RiskAnalysis") {
+                control.RiskAnalysis = stoi(value);
+            } else if (key == "OutputFileName") {
+                control.OutputFileName = removeQuotes(value);
+            }
         }
     }
+
+    file.close();
 }
