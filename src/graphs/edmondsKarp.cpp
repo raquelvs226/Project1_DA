@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include "edmondsKarp.h"
 
 template <class T>
 void testAndVisit(std::queue< Vertex<T>*> &q, Edge<T> *e, Vertex<T> *w, double residual) {
@@ -75,10 +76,9 @@ void augmentFlowAlongPath(Vertex<T> *s, Vertex<T> *t, double f) {
     }
 }
 
-template <class T>
-void edmondsKarp(Graph<T> *g, int source, int target) {
-    Vertex<T>* s = g->findVertex(source);
-    Vertex<T>* t = g->findVertex(target);
+void edmondsKarp(Graph<int> *g, int source, int target) {
+    Vertex<int>* s = g->findVertex(source);
+    Vertex<int>* t = g->findVertex(target);
 
     if(s == nullptr || t == nullptr || s == t) return;
 

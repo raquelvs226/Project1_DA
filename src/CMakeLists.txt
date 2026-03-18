@@ -9,6 +9,8 @@ add_executable(Project1
         parser/parser.cpp
         graph_builder/graph_builder.cpp
         output/output_writer.cpp
+        menu/menu.cpp
+        graphs/edmondsKarp.cpp
 )
 
 target_include_directories(Project1 PRIVATE
