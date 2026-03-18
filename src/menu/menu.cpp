@@ -25,7 +25,7 @@ static void showMenu() {
     cout << "1. Load dataset\n";
     cout << "2. Run assignments and risk analysis\n";
     cout << "0. Exit\n";
-    cout << "Option:\n";
+    cout << "Option: ";
 }
 
 static bool loadDataset(vector<Submission>& submissions,
@@ -34,15 +34,14 @@ static bool loadDataset(vector<Submission>& submissions,
                         Control& control) {
     string filename;
 
-    cout << "Enter dataset filename: ";
-    cout.flush();
+    cout << "Enter dataset filename: " << flush;
     cin >> filename;
 
     string path = "../../input/" + filename;
 
     ifstream file(path);
     if (!file.is_open()) {
-        cerr << "Error: file '" << path << "' not found.\n";
+        cout << "Error: file '" << path << "' not found.\n";
         return false;
     }
     file.close();
@@ -63,7 +62,7 @@ static bool loadDataset(vector<Submission>& submissions,
         return true;
     }
     catch (const exception& e) {
-        cerr << "Error loading dataset: " << e.what() << '\n';
+        cout << "Error loading dataset: " << e.what() << '\n';
         return false;
     }
 }
@@ -85,7 +84,7 @@ static void runAssignmentsAndRiskAnalysis( vector<Submission>& submissions,
 
         edmondsKarp(g, source, sink);
 
-        string outputPath = "../" + control.OutputFileName;
+        string outputPath = "../../results/" + control.OutputFileName;
         writeOutputCSV(outputPath, g, submissions, reviewers, params);
 
         cout << "Process completed successfully.\n";
@@ -114,8 +113,8 @@ void runMenu() {
         showMenu();
 
         if (!(cin >> option)) {
-            clearInput();
             cout << "Invalid option.\n";
+            clearInput();
             continue;
         }
 
