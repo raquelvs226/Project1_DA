@@ -12,6 +12,7 @@ void writeOutputCSV(const string &filename,
                     Graph<int> *g,
                     vector<Submission> &submissions,
                     vector<Reviewer> &reviewers,
-                    Parameters &params);
+                    Parameters &params,
+                    Control &control);
 
 #endif

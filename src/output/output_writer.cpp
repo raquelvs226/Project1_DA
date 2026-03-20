@@ -11,7 +11,8 @@ void writeOutputCSV(const string &filename,
                     Graph<int> *g,
                     vector<Submission> &submissions,
                     vector<Reviewer> &reviewers,
-                    Parameters &params) {
+                    Parameters &params,
+                    Control &control) {
 
     ofstream file(filename);
 
@@ -36,9 +37,45 @@ void writeOutputCSV(const string &filename,
 
                 int submissionIndex = dest - firstSubmissionNode;
 
-                int submissionId = submissions[submissionIndex].id;
-                int reviewerId = reviewers[reviewerIndex].id;
-                int matchDomain = submissions[submissionIndex].primary;
+                Submission &s = submissions[submissionIndex];
+                Reviewer &r = reviewers[reviewerIndex];
+
+                int submissionId = s.id;
+                int reviewerId = r.id;
+                int matchDomain = -1;
+
+                int mode = control.GenerateAssignments;
+                if (mode == 0) {
+                    mode = 3;
+                }
+
+                if (mode == 1) {
+                    if (r.primary == s.primary) {
+                        matchDomain = s.primary;
+                    }
+                }
+                else if (mode == 2) {
+                    if (r.primary == s.primary) {
+                        matchDomain = s.primary;
+                    }
+                    else if (s.secondary != -1 && r.primary == s.secondary) {
+                        matchDomain = s.secondary;
+                    }
+                }
+                else if (mode == 3) {
+                    if (r.primary == s.primary) {
+                        matchDomain = s.primary;
+                    }
+                    else if (s.secondary != -1 && r.primary == s.secondary) {
+                        matchDomain = s.secondary;
+                    }
+                    else if (r.secondary != -1 && r.secondary == s.primary) {
+                        matchDomain = s.primary;
+                    }
+                    else if (r.secondary != -1 && s.secondary != -1 && r.secondary == s.secondary) {
+                        matchDomain = s.secondary;
+                    }
+                }
 
                 assignments.push_back({submissionId, reviewerId, matchDomain});
                 receivedReviews[submissionIndex] += (int)e->getFlow();

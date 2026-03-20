@@ -95,7 +95,7 @@ static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
             }
 
             string outputPath = "../../results/" + control.OutputFileName;
-            writeOutputCSV(outputPath, g, submissions, reviewers, params);
+            writeOutputCSV(outputPath, g, submissions, reviewers, params, control);
 
             cout << "Process completed successfully.\n";
             cout << "Output written to: " << outputPath << '\n';

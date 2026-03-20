@@ -10,7 +10,10 @@ bool isCompatible(Reviewer &r, Submission &s, Control &control) {
     // Case 2: primary + secondary submission domains enabled
     if (control.GenerateAssignments == 2) {
         if (r.primary == s.primary) return true;
-        if (s.secondary != -1 && r.primary == s.secondary) return true;
+
+        if (s.secondary != -1) {
+            if (s.secondary == r.primary) return true;
+        }
         return false;
     }
 
