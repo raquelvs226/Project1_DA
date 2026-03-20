@@ -10,6 +10,7 @@ using namespace std;
 Graph<int>* buildGraph(vector<Submission> &submissions,
                        vector<Reviewer> &reviewers,
                        Parameters &params,
+                       Control &control,
                        int &source,
                        int &sink);
 

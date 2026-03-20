@@ -55,7 +55,7 @@ static bool loadDataset(vector<Submission>& submissions,
     try {
         parseCSV(path, submissions, reviewers, params, control);
 
-        if (control.OutputFileName.empty()) {
+        if (control.GenerateAssignments != 0 && control.OutputFileName.empty()) {
             control.OutputFileName = "output.csv";
         }
 
@@ -70,10 +70,10 @@ static bool loadDataset(vector<Submission>& submissions,
     }
 }
 
-static void runAssignmentsAndRiskAnalysis( vector<Submission>& submissions,
-                                           vector<Reviewer>& reviewers,
-                                           Parameters& params,
-                                           Control& control,
+static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
+                                          vector<Reviewer>& reviewers,
+                                          Parameters& params,
+                                          Control& control,
                                           bool datasetLoaded) {
     if (!datasetLoaded) {
         cout << "You need to load a dataset first.\n";
@@ -83,15 +83,23 @@ static void runAssignmentsAndRiskAnalysis( vector<Submission>& submissions,
     int source, sink;
 
     try {
-        Graph<int>* g = buildGraph(submissions, reviewers, params, source, sink);
+        Graph<int>* g = buildGraph(submissions, reviewers, params, control, source, sink);
 
         edmondsKarp(g, source, sink);
 
-        string outputPath = "../../results/" + control.OutputFileName;
-        writeOutputCSV(outputPath, g, submissions, reviewers, params);
+        if (control.GenerateAssignments == 0) {
+            cout << "Assignments computed but not reported.\n";
+        } else {
+            if (control.OutputFileName.empty()) {
+                control.OutputFileName = "output.csv";
+            }
 
-        cout << "Process completed successfully.\n";
-        cout << "Output written to: " << outputPath << '\n';
+            string outputPath = "../../results/" + control.OutputFileName;
+            writeOutputCSV(outputPath, g, submissions, reviewers, params);
+
+            cout << "Process completed successfully.\n";
+            cout << "Output written to: " << outputPath << '\n';
+        }
 
         delete g;
     }
@@ -136,7 +144,6 @@ void runMenu() {
                 if (datasetLoaded) {
                     cout << "\nCurrently loaded file: " << currentFilename << "\n";
                 } else {
-
                     cout << "\nNo dataset loaded yet.\n";
                 }
                 break;
