@@ -111,7 +111,7 @@ void runMenu() {
 
     bool datasetLoaded = false;
     string currentFilename = "None";
-    int option;
+    int option = -1;
 
     do {
         showMenu();
@@ -119,6 +119,7 @@ void runMenu() {
         if (!(cin >> option)) {
             cout << "Invalid option.\n";
             clearInput();
+            option = -1;
             continue;
         }
 
