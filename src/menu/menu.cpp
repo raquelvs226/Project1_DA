@@ -24,6 +24,7 @@ static void showMenu() {
     cout << "\n========== MENU ==========\n";
     cout << "1. Load dataset\n";
     cout << "2. Run assignments and risk analysis\n";
+    cout << "3. View loaded filename\n";
     cout << "0. Exit\n";
     cout << "Option: ";
 }
@@ -31,9 +32,9 @@ static void showMenu() {
 static bool loadDataset(vector<Submission>& submissions,
                         vector<Reviewer>& reviewers,
                         Parameters& params,
-                        Control& control) {
+                        Control& control,
+                        string& currentFilename) {
     string filename;
-
     cout << "Enter dataset filename: " << flush;
     cin >> filename;
 
@@ -57,6 +58,8 @@ static bool loadDataset(vector<Submission>& submissions,
         if (control.OutputFileName.empty()) {
             control.OutputFileName = "output.csv";
         }
+
+        currentFilename = filename;
 
         cout << "Dataset loaded successfully from: " << path << "\n";
         return true;
@@ -107,6 +110,7 @@ void runMenu() {
     Control control;
 
     bool datasetLoaded = false;
+    string currentFilename = "None";
     int option;
 
     do {
@@ -120,11 +124,20 @@ void runMenu() {
 
         switch (option) {
             case 1:
-                datasetLoaded = loadDataset(submissions, reviewers, params, control);
+                datasetLoaded = loadDataset(submissions, reviewers, params, control, currentFilename);
                 break;
 
             case 2:
                 runAssignmentsAndRiskAnalysis(submissions, reviewers, params, control, datasetLoaded);
+                break;
+
+            case 3:
+                if (datasetLoaded) {
+                    cout << "\nCurrently loaded file: " << currentFilename << "\n";
+                } else {
+
+                    cout << "\nNo dataset loaded yet.\n";
+                }
                 break;
 
             case 0:
