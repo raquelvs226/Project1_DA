@@ -11,7 +11,8 @@
 #include "graph_builder/graph_builder.h"
 #include "graphs/Graph.h"
 #include "graphs/edmondsKarp.h"
-#include "output/output_writer.h"
+#include "generate_assignments/generate_assignments.h"
+#include "output_writer/output_writer.h"
 
 using namespace std;
 
@@ -80,9 +81,8 @@ static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
         return;
     }
 
-    int source, sink;
-
     try {
+        int source, sink;
         Graph<int>* g = buildGraph(submissions, reviewers, params, control, source, sink);
 
         edmondsKarp(g, source, sink);
@@ -90,12 +90,18 @@ static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
         if (control.GenerateAssignments == 0) {
             cout << "Assignments computed but not reported.\n";
         } else {
-            if (control.OutputFileName.empty()) {
+            if (control.OutputFileName.empty())
                 control.OutputFileName = "output.csv";
-            }
+
+            int firstReviewerNode   = source + 1;
+            int firstSubmissionNode = source + 1 + (int)reviewers.size();
+
+            vector<Assignment> assignments = extractAssignments(
+                g, submissions, reviewers, control,
+                firstReviewerNode, firstSubmissionNode);
 
             string outputPath = "../../results/" + control.OutputFileName;
-            writeOutputCSV(outputPath, g, submissions, reviewers, params, control);
+            writeOutputCSV(outputPath, assignments, submissions, reviewers, params, control);
 
             cout << "Process completed successfully.\n";
             cout << "Output written to: " << outputPath << '\n';
