@@ -1,11 +1,9 @@
 #include "output_writer.h"
-#include "../generate_assignments/generate_assignments.h"
 #include "../risk_analysis/risk_analysis.h"
 
 #include <algorithm>
 #include <fstream>
 #include <stdexcept>
-#include <vector>
 
 static std::vector<Assignment> sortedBySubmission(std::vector<Assignment> v) {
     std::sort(v.begin(), v.end(), [](const Assignment& a, const Assignment& b) {

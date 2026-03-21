@@ -15,7 +15,6 @@ std::vector<Assignment> extractAssignments(
     Graph<int>* g,
     const std::vector<Submission>& submissions,
     const std::vector<Reviewer>& reviewers,
-    const Control& control,
     int firstReviewerNode,
     int firstSubmissionNode);
 

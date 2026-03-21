@@ -36,10 +36,14 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
         g->addEdge(subNode, sink, params.MinReviewsPerSubmission);
     }
 
-    for (int i = 0; i < reviewers.size(); i++) {
-        for (int j = 0; j < submissions.size(); j++) {
-            if (isCompatible(reviewers[i], submissions[j], control)) {
-                g->addEdge(reviewerNodes[i], submissionNodes[j], 1);
+    for (int i = 0; i < (int)reviewers.size(); i++) {
+        for (int j = 0; j < (int)submissions.size(); j++) {
+            int domain = getMatchDomain(reviewers[i], submissions[j], control);
+            if (domain != -1) {
+                Vertex<int>* rv = g->findVertex(reviewerNodes[i]);
+                Vertex<int>* sv = g->findVertex(submissionNodes[j]);
+                Edge<int>* e = rv->addEdge(sv, 1);
+                e->setMatchDomain(domain);
             }
         }
     }

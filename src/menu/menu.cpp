@@ -6,13 +6,12 @@
 #include <limits>
 #include <fstream>
 
-#include "data.h"
-#include "parser/parser.h"
-#include "graph_builder/graph_builder.h"
-#include "graphs/Graph.h"
-#include "graphs/edmondsKarp.h"
-#include "generate_assignments/generate_assignments.h"
-#include "output_writer/output_writer.h"
+#include "../data.h"
+#include "../parser/parser.h"
+#include "../graph_builder/graph_builder.h"
+#include "../graphs/edmondsKarp.h"
+#include "../generate_assignments/generate_assignments.h"
+#include "../output_writer/output_writer.h"
 
 using namespace std;
 
@@ -97,7 +96,7 @@ static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
             int firstSubmissionNode = source + 1 + (int)reviewers.size();
 
             vector<Assignment> assignments = extractAssignments(
-                g, submissions, reviewers, control,
+                g, submissions, reviewers,
                 firstReviewerNode, firstSubmissionNode);
 
             string outputPath = "../../results/" + control.OutputFileName;

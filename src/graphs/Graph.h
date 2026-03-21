@@ -82,10 +82,13 @@ public:
     Vertex<T> * getOrig() const;
     Edge<T> *getReverse() const;
     double getFlow() const;
+    int getMatchDomain() const;
 
     void setSelected(bool selected);
     void setReverse(Edge<T> *reverse);
     void setFlow(double flow);
+    void setMatchDomain(int domain);
+
 protected:
     Vertex<T> * dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
@@ -98,6 +101,7 @@ protected:
     Edge<T> *reverse = nullptr;
 
     double flow; // for flow-related problems
+    int matchDomain = -1; // domain that caused this reviewer-submission edge (-1 if not applicable)
 };
 
 /********************** Graph  ****************************/
@@ -351,6 +355,11 @@ double Edge<T>::getFlow() const {
 }
 
 template <class T>
+int Edge<T>::getMatchDomain() const {
+    return this->matchDomain;
+}
+
+template <class T>
 void Edge<T>::setSelected(bool selected) {
     this->selected = selected;
 }
@@ -363,6 +372,11 @@ void Edge<T>::setReverse(Edge<T> *reverse) {
 template <class T>
 void Edge<T>::setFlow(double flow) {
     this->flow = flow;
+}
+
+template <class T>
+void Edge<T>::setMatchDomain(int domain) {
+    this->matchDomain = domain;
 }
 
 /********************** Graph  ****************************/

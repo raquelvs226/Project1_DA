@@ -1,13 +1,9 @@
 #include "generate_assignments.h"
-#include "../matching/matching.h"
-
-#include <vector>
 
 std::vector<Assignment> extractAssignments(
     Graph<int>* g,
     const std::vector<Submission>& submissions,
     const std::vector<Reviewer>& reviewers,
-    const Control& control,
     int firstReviewerNode,
     int firstSubmissionNode)
 {
@@ -31,7 +27,7 @@ std::vector<Assignment> extractAssignments(
             Assignment a;
             a.submissionId = submissions[j].id;
             a.reviewerId   = reviewers[i].id;
-            a.matchDomain  = getMatchDomain(reviewers[i], submissions[j], control);
+            a.matchDomain  = e->getMatchDomain();
             result.push_back(a);
         }
     }

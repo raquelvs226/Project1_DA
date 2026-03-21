@@ -2,9 +2,6 @@
 #include "../graphs/edmondsKarp.h"
 #include "../graph_builder/graph_builder.h"
 
-#include <vector>
-#include <fstream>
-
 using namespace std;
 
 static bool isFeasible(vector<Submission> &submissions,
