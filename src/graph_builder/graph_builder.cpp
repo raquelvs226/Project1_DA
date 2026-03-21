@@ -2,17 +2,37 @@
 
 
 int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control) {
-    int mode = (control.GenerateAssignments == 0) ? 3 : control.GenerateAssignments;
 
-    if (mode >= 1 && r.primary == s.primary)
-        return s.primary;
-    if (mode >= 2 && s.secondary != -1 && r.primary == s.secondary)
-        return s.secondary;
-    if (mode >= 3 && r.secondary != -1 && r.secondary == s.primary)
-        return s.primary;
-    if (mode >= 3 && r.secondary != -1 && s.secondary != -1
-                  && r.secondary == s.secondary)
-        return s.secondary;
+    // Mode 1: Primary ↔ Primary
+    if (control.GenerateAssignments == 1) {
+        if (r.primary == s.primary)
+            return s.primary;
+    }
+
+    // Mode 2: Mode 1 + Primary ↔ Secondary
+    else if (control.GenerateAssignments == 2) {
+        if (r.primary == s.primary)
+            return s.primary;
+
+        if (s.secondary != -1 && r.primary == s.secondary)
+            return s.secondary;
+    }
+
+    // Mode 3: Mode 2 + Secondary matches
+    else if (control.GenerateAssignments == 0 || control.GenerateAssignments == 3) {
+        if (r.primary == s.primary)
+            return s.primary;
+
+        if (s.secondary != -1 && r.primary == s.secondary)
+            return s.secondary;
+
+        if (r.secondary != -1 && r.secondary == s.primary)
+            return s.primary;
+
+        if (r.secondary != -1 && s.secondary != -1 && r.secondary == s.secondary)
+            return s.secondary;
+    }
+
     return -1;
 }
 
@@ -27,7 +47,7 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
                        int &source,
                        int &sink) {
 
-    Graph<int>* g = new Graph<int>();
+    auto g = new Graph<int>();
     int id = 0;
 
     // SOURCE
