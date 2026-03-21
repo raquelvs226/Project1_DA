@@ -7,6 +7,10 @@
 
 using namespace std;
 
+int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control);
+
+bool isCompatible(Reviewer &r, Submission &s, Control &control);
+
 Graph<int>* buildGraph(vector<Submission> &submissions,
                        vector<Reviewer> &reviewers,
                        Parameters &params,

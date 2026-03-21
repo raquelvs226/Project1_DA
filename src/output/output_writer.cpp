@@ -1,4 +1,5 @@
 #include "output_writer.h"
+#include "graph_builder/graph_builder.h"
 
 #include <fstream>
 #include <vector>
@@ -24,111 +25,63 @@ void writeOutputCSV(const string &filename,
     vector<int> receivedReviews(numSubmissions, 0);
     vector<tuple<int, int, int>> assignments;
 
-    for (int reviewerIndex = 0; reviewerIndex < numReviewers; reviewerIndex++) {
-        int reviewerNode = firstReviewerNode + reviewerIndex;
-        Vertex<int> *v = g->findVertex(reviewerNode);
+    for (int i = 0; i < numReviewers; i++) {
+        Vertex<int> *v = g->findVertex(firstReviewerNode + i);
 
-        for (auto e : v->getAdj()) {
-            int dest = e->getDest()->getInfo();
+            for (auto e : v->getAdj()) {
+                int dest = e->getDest()->getInfo();
 
-            if (dest >= firstSubmissionNode &&
-                dest < firstSubmissionNode + numSubmissions &&
-                e->getFlow() > 0) {
+                if (dest < firstSubmissionNode || dest >= firstSubmissionNode + numSubmissions)
+                    continue;
+                if (e->getFlow() <= 0)
+                    continue;
 
-                int submissionIndex = dest - firstSubmissionNode;
+                int j = dest - firstSubmissionNode;
+                int matchDomain = getMatchDomain(reviewers[i], submissions[j], control);
 
-                Submission &s = submissions[submissionIndex];
-                Reviewer &r = reviewers[reviewerIndex];
-
-                int submissionId = s.id;
-                int reviewerId = r.id;
-                int matchDomain = -1;
-
-                int mode = control.GenerateAssignments;
-                if (mode == 0) {
-                    mode = 3;
-                }
-
-                if (mode == 1) {
-                    if (r.primary == s.primary) {
-                        matchDomain = s.primary;
-                    }
-                }
-                else if (mode == 2) {
-                    if (r.primary == s.primary) {
-                        matchDomain = s.primary;
-                    }
-                    else if (s.secondary != -1 && r.primary == s.secondary) {
-                        matchDomain = s.secondary;
-                    }
-                }
-                else if (mode == 3) {
-                    if (r.primary == s.primary) {
-                        matchDomain = s.primary;
-                    }
-                    else if (s.secondary != -1 && r.primary == s.secondary) {
-                        matchDomain = s.secondary;
-                    }
-                    else if (r.secondary != -1 && r.secondary == s.primary) {
-                        matchDomain = s.primary;
-                    }
-                    else if (r.secondary != -1 && s.secondary != -1 && r.secondary == s.secondary) {
-                        matchDomain = s.secondary;
-                    }
-                }
-
-                assignments.push_back({submissionId, reviewerId, matchDomain});
-                receivedReviews[submissionIndex] += (int)e->getFlow();
-            }
+                assignments.push_back({submissions[j].id, reviewers[i].id, matchDomain});
+                receivedReviews[j] += (int)e->getFlow();
         }
     }
 
-    vector<tuple<int, int, int>> assignmentsBySubmission = assignments;
-    vector<tuple<int, int, int>> assignmentsByReviewer = assignments;
-
-    sort(assignmentsBySubmission.begin(), assignmentsBySubmission.end(),
-         [](const tuple<int, int, int> &a, const tuple<int, int, int> &b) {
-             if (get<0>(a) != get<0>(b)) {
-                 return get<0>(a) < get<0>(b);
-             }
-             return get<1>(a) < get<1>(b);
+    auto bySubmission = assignments;
+    sort(bySubmission.begin(), bySubmission.end(),
+         [](const auto &a, const auto &b) {
+             return get<0>(a) != get<0>(b) ? get<0>(a) < get<0>(b) : get<1>(a) < get<1>(b);
          });
 
-    sort(assignmentsByReviewer.begin(), assignmentsByReviewer.end(),
-         [](const tuple<int, int, int> &a, const tuple<int, int, int> &b) {
-             if (get<1>(a) != get<1>(b)) {
-                 return get<1>(a) < get<1>(b);
-             }
-             return get<0>(a) < get<0>(b);
+    auto byReviewer = assignments;
+    sort(byReviewer.begin(), byReviewer.end(),
+         [](const auto &a, const auto &b) {
+             return get<1>(a) != get<1>(b) ? get<1>(a) < get<1>(b) : get<0>(a) < get<0>(b);
          });
 
     file << "#SubmissionId,ReviewerId,Match\n";
-    for (auto &a : assignmentsBySubmission) {
-        file << get<0>(a) << ", " << get<1>(a) << ", " << get<2>(a) << "\n";
+    for (auto &[subId, revId, match] : bySubmission) {
+        file << subId << ", " << revId << ", " << match << "\n";
     }
 
     file << "#ReviewerId,SubmissionId,Match\n";
-    for (auto &a : assignmentsByReviewer) {
-        file << get<1>(a) << ", " << get<0>(a) << ", " << get<2>(a) << "\n";
+    for (auto &[subId, revId, match] : byReviewer) {
+        file << revId << ", " << subId << ", " << match << "\n";
     }
 
     file << "#Total: " << assignments.size() << "\n";
 
-    bool hasMissingReviews = false;
+    bool hasMissing = false;
     for (int i = 0; i < numSubmissions; i++) {
         if (receivedReviews[i] < params.MinReviewsPerSubmission) {
-            hasMissingReviews = true;
+            hasMissing = true;
             break;
         }
     }
 
-    if (hasMissingReviews) {
+    if (hasMissing) {
         file << "#SubmissionId,Domain,MissingReviews\n";
-
         for (int i = 0; i < numSubmissions; i++) {
             if (receivedReviews[i] < params.MinReviewsPerSubmission) {
-                int missing = params.MinReviewsPerSubmission - receivedReviews[i];
-                file << submissions[i].id << ", " << submissions[i].primary << ", " << missing << "\n";
+                file << submissions[i].id << ", " << submissions[i].primary << ", "
+                << params.MinReviewsPerSubmission - receivedReviews[i] << "\n";
             }
         }
     }

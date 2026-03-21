@@ -1,32 +1,23 @@
 #include "graph_builder.h"
 
+
+int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control) {
+    int mode = (control.GenerateAssignments == 0) ? 3 : control.GenerateAssignments;
+
+    if (mode >= 1 && r.primary == s.primary)
+        return s.primary;
+    if (mode >= 2 && s.secondary != -1 && r.primary == s.secondary)
+        return s.secondary;
+    if (mode >= 3 && r.secondary != -1 && r.secondary == s.primary)
+        return s.primary;
+    if (mode >= 3 && r.secondary != -1 && s.secondary != -1
+                  && r.secondary == s.secondary)
+        return s.secondary;
+    return -1;
+}
+
 bool isCompatible(Reviewer &r, Submission &s, Control &control) {
-
-    // Case 1: only primary reviewer expertise with primary submission domain
-    if (control.GenerateAssignments == 1) {
-        return r.primary == s.primary;
-    }
-
-    // Case 2: primary + secondary submission domains enabled
-    if (control.GenerateAssignments == 2) {
-        if (r.primary == s.primary) return true;
-
-        if (s.secondary != -1) {
-            if (s.secondary == r.primary) return true;
-        }
-        return false;
-    }
-
-    // Case 0 and 3: primary and secondary reviewer expertise + primary and secondary submission domains
-    if (control.GenerateAssignments == 0 || control.GenerateAssignments == 3) {
-        if (r.primary == s.primary) return true;
-        if (s.secondary != -1 && r.primary == s.secondary) return true;
-        if (r.secondary != -1 && r.secondary == s.primary) return true;
-        if (r.secondary != -1 && s.secondary != -1 && r.secondary == s.secondary) return true;
-        return false;
-    }
-
-    return false;
+    return getMatchDomain(r, s, control) != -1;
 }
 
 Graph<int>* buildGraph(vector<Submission> &submissions,
@@ -37,7 +28,6 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
                        int &sink) {
 
     Graph<int>* g = new Graph<int>();
-
     int id = 0;
 
     // SOURCE
@@ -49,10 +39,8 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
     for (auto &r : reviewers) {
         g->addVertex(id);
         reviewerNodes.push_back(id);
-
         // source -> reviewer
         g->addEdge(source, id, params.MaxReviewsPerReviewer);
-
         id++;
     }
 
@@ -73,7 +61,7 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
         g->addEdge(subNode, sink, params.MinReviewsPerSubmission);
     }
 
-    // reviewer -> submission (compatibilidade)
+    // reviewer -> submission (compatibility)
     for (int i = 0; i < reviewers.size(); i++) {
         for (int j = 0; j < submissions.size(); j++) {
             if (isCompatible(reviewers[i], submissions[j], control)) {
