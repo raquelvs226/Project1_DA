@@ -81,7 +81,7 @@ void writeOutputCSV(const string &filename,
         for (int i = 0; i < numSubmissions; i++) {
             if (receivedReviews[i] < params.MinReviewsPerSubmission) {
                 file << submissions[i].id << ", " << submissions[i].primary << ", "
-                << params.MinReviewsPerSubmission - receivedReviews[i] << "\n";
+                     << params.MinReviewsPerSubmission - receivedReviews[i] << "\n";
             }
         }
     }
