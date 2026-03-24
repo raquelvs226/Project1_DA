@@ -9,6 +9,7 @@
 void writeOutputCSV(
     const std::string& filename,
     const std::vector<Assignment>& assignments,
+    const std::vector<int>& riskyReviewers,
     std::vector<Submission>& submissions,
     std::vector<Reviewer>& reviewers,
     Parameters& params,

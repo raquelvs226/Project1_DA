@@ -1,16 +1,15 @@
 #include "risk_analysis.h"
-#include "../graphs/edmondsKarp.h"
 #include "../graph_builder/graph_builder.h"
+#include "../graphs/edmondsKarp.h"
 
-using namespace std;
-
-static bool isFeasible(vector<Submission> &submissions,
-                       vector<Reviewer> &reviewers,
-                       Parameters &params,
-                       Control &control) {
-
+static bool isFeasible(
+    std::vector<Submission>& submissions,
+    std::vector<Reviewer>& reviewers,
+    Parameters& params,
+    Control& control)
+{
     int source, sink;
-    Graph<int> *g = buildGraph(submissions, reviewers, params, control, source, sink);
+    Graph<int>* g = buildGraph(submissions, reviewers, params, control, source, sink);
     edmondsKarp(g, source, sink);
 
     int flow = 0;
@@ -21,21 +20,20 @@ static bool isFeasible(vector<Submission> &submissions,
     return flow == (int)(submissions.size() * params.MinReviewsPerSubmission);
 }
 
-void writeRiskAnalysis(ofstream &file,
-                       vector<Submission> &submissions,
-                       vector<Reviewer> &reviewers,
-                       Parameters &params,
-                       Control &control) {
-
-    if (control.RiskAnalysis != 1) return;
-
-    if (!isFeasible(submissions, reviewers, params, control)) return;
+std::vector<int> getRiskyReviewers(
+    std::vector<Submission>& submissions,
+    std::vector<Reviewer>& reviewers,
+    Parameters& params,
+    Control& control)
+{
+    if (control.RiskAnalysis != 1) return {};
+    if (!isFeasible(submissions, reviewers, params, control)) return {};
 
     int n = reviewers.size();
-    vector<int> riskyIds;
+    std::vector<int> riskyIds;
 
     for (int i = 0; i < n; i++) {
-        vector<Reviewer> filtered;
+        std::vector<Reviewer> filtered;
         for (int j = 0; j < n; j++)
             if (j != i) filtered.push_back(reviewers[j]);
 
@@ -43,11 +41,5 @@ void writeRiskAnalysis(ofstream &file,
             riskyIds.push_back(reviewers[i].id);
     }
 
-    if (!riskyIds.empty()) {
-        for (int i = 0; i < (int)riskyIds.size(); i++) {
-            if (i > 0) file << ", ";
-            file << riskyIds[i];
-        }
-        file << "\n";
-    }
+    return riskyIds;
 }

@@ -8,10 +8,7 @@
 
 #include "../data.h"
 #include "../parser/parser.h"
-#include "../graph_builder/graph_builder.h"
-#include "../graphs/edmondsKarp.h"
-#include "../generate_assignments/generate_assignments.h"
-#include "../output_writer/output_writer.h"
+#include "../pipeline/pipeline.h"
 
 using namespace std;
 
@@ -79,40 +76,11 @@ static void runAssignmentsAndRiskAnalysis(vector<Submission>& submissions,
         cout << "You need to load a dataset first.\n";
         return;
     }
-
     try {
-        int source, sink;
-        Graph<int>* g = buildGraph(submissions, reviewers, params, control, source, sink);
-
-        edmondsKarp(g, source, sink);
-
-        if (control.GenerateAssignments == 0) {
-            cout << "Assignments computed but not reported.\n";
-        } else {
-            if (control.OutputFileName.empty())
-                control.OutputFileName = "output.csv";
-
-            int firstReviewerNode   = source + 1;
-            int firstSubmissionNode = source + 1 + (int)reviewers.size();
-
-            vector<Assignment> assignments = extractAssignments(
-                g, submissions, reviewers,
-                firstReviewerNode, firstSubmissionNode);
-
-            string outputPath = "../../results/" + control.OutputFileName;
-            writeOutputCSV(outputPath, assignments, submissions, reviewers, params, control);
-
-            cout << "Process completed successfully.\n";
-            cout << "Output written to: " << outputPath << '\n';
-        }
-
-        delete g;
+        runPipeline(submissions, reviewers, params, control);
     }
     catch (const exception& e) {
         cerr << "Error during execution: " << e.what() << '\n';
-    }
-    catch (...) {
-        cerr << "Unknown error during execution.\n";
     }
 }
 

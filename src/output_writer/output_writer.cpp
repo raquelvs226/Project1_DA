@@ -1,5 +1,5 @@
 #include "output_writer.h"
-#include "../risk_analysis/risk_analysis.h"
+#include "../generate_assignments/generate_assignments.h"
 
 #include <algorithm>
 #include <fstream>
@@ -24,6 +24,7 @@ static std::vector<Assignment> sortedByReviewer(std::vector<Assignment> v) {
 void writeOutputCSV(
     const std::string& filename,
     const std::vector<Assignment>& assignments,
+    const std::vector<int>& riskyReviewers,
     std::vector<Submission>& submissions,
     std::vector<Reviewer>& reviewers,
     Parameters& params,
@@ -61,6 +62,12 @@ void writeOutputCSV(
 
     if (control.RiskAnalysis == 1) {
         file << "#Risk Analysis: 1\n";
-        writeRiskAnalysis(file, submissions, reviewers, params, control);
+        if (!riskyReviewers.empty()) {
+            for (int i = 0; i < (int)riskyReviewers.size(); i++) {
+                if (i > 0) file << ", ";
+                file << riskyReviewers[i];
+            }
+            file << "\n";
+        }
     }
 }

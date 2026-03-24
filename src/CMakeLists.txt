@@ -14,6 +14,7 @@ add_executable(Project1
         risk_analysis/risk_analysis.cpp
         output_writer/output_writer.cpp
         menu/menu.cpp
+        pipeline/pipeline.cpp
 )
 
 target_include_directories(Project1 PRIVATE
