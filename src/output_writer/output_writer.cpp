@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <fstream>
 #include <stdexcept>
+#include <iostream>
 
 static std::vector<Assignment> sortedBySubmission(std::vector<Assignment> v) {
     std::sort(v.begin(), v.end(), [](const Assignment& a, const Assignment& b) {
@@ -34,29 +35,31 @@ void writeOutputCSV(
     if (!file.is_open())
         throw std::runtime_error("Could not open output file: " + filename);
 
-    file << "#SubmissionId,ReviewerId,Match\n";
-    for (const auto& a : sortedBySubmission(assignments))
-        file << a.submissionId << ", " << a.reviewerId << ", " << a.matchDomain << "\n";
+    if (control.GenerateAssignments != 0) {
+        file << "#SubmissionId,ReviewerId,Match\n";
+        for (const auto& a : sortedBySubmission(assignments))
+            file << a.submissionId << ", " << a.reviewerId << ", " << a.matchDomain << "\n";
 
-    file << "#ReviewerId,SubmissionId,Match\n";
-    for (const auto& a : sortedByReviewer(assignments))
-        file << a.reviewerId << ", " << a.submissionId << ", " << a.matchDomain << "\n";
+        file << "#ReviewerId,SubmissionId,Match\n";
+        for (const auto& a : sortedByReviewer(assignments))
+            file << a.reviewerId << ", " << a.submissionId << ", " << a.matchDomain << "\n";
 
-    file << "#Total: " << assignments.size() << "\n";
+        file << "#Total: " << assignments.size() << "\n";
 
-    std::vector<int> received = countReceivedReviews(assignments, submissions);
-    bool hasMissing = false;
-    for (int count : received)
-        if (count < params.MinReviewsPerSubmission) { hasMissing = true; break; }
+        std::vector<int> received = countReceivedReviews(assignments, submissions);
+        bool hasMissing = false;
+        for (int count : received)
+            if (count < params.MinReviewsPerSubmission) { hasMissing = true; break; }
 
-    if (hasMissing) {
-        file << "#SubmissionId,Domain,MissingReviews\n";
-        for (int j = 0; j < static_cast<int>(submissions.size()); j++) {
-            int missing = params.MinReviewsPerSubmission - received[j];
-            if (missing > 0)
-                file << submissions[j].id << ", "
-                     << submissions[j].primary << ", "
-                     << missing << "\n";
+        if (hasMissing) {
+            file << "#SubmissionId,Domain,MissingReviews\n";
+            for (int j = 0; j < static_cast<int>(submissions.size()); j++) {
+                int missing = params.MinReviewsPerSubmission - received[j];
+                if (missing > 0)
+                    file << submissions[j].id << ", "
+                         << submissions[j].primary << ", "
+                         << missing << "\n";
+            }
         }
     }
 
@@ -70,4 +73,9 @@ void writeOutputCSV(
             file << "\n";
         }
     }
+
+    file.close();
+
+    std::ifstream in(filename);
+    std::cout << in.rdbuf();
 }
