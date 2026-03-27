@@ -25,8 +25,7 @@ void runPipeline(
     if (control.GenerateAssignments != 0) {
         int firstReviewerNode   = source + 1;
         int firstSubmissionNode = source + 1 + (int)reviewers.size();
-        assignments = extractAssignments(g, submissions, reviewers,
-                                         firstReviewerNode, firstSubmissionNode);
+        assignments = extractAssignments(g, submissions, reviewers, firstReviewerNode, firstSubmissionNode);
     }
 
     delete g;
