@@ -33,7 +33,7 @@ struct Assignment {
  * @param firstSubmissionNode Graph node index of the first submission.
  * @return Vector of Assignment structs representing the final assignment.
  *
- * @complexity O(R * S) where R is the number of reviewers and S is the number of submissions.
+ * @note Complexity: O(R * S) where R is the number of reviewers and S is the number of submissions.
  */
 std::vector<Assignment> extractAssignments(
     Graph<int>* g,
@@ -49,7 +49,7 @@ std::vector<Assignment> extractAssignments(
  * @param submissions List of all submissions (used to map IDs to indices).
  * @return Vector where position i contains the number of reviews for submissions[i].
  *
- * @complexity O(A * S) where A is the number of assignments and S is the number of submissions.
+ * @note Complexity: O(A * S) where A is the number of assignments and S is the number of submissions.
  */
 std::vector<int> countReceivedReviews(
     const std::vector<Assignment>& assignments,

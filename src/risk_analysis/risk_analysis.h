@@ -28,7 +28,7 @@
  * @return Sorted vector of IDs of reviewers whose removal breaks feasibility.
  *         Returns an empty vector if RiskAnalysis != 1 or the base case is infeasible.
  *
- * @complexity O(R * V * E^2) where R is the number of reviewers, V is the number
+ * @note Complexity: O(R * V * E^2) where R is the number of reviewers, V is the number
  * of graph vertices, and E is the number of edges. Each of the R iterations
  * rebuilds and solves the flow problem in O(V * E^2).
  */

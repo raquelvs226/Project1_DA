@@ -32,7 +32,7 @@
  * @param outputPathOverride If non-empty, overrides the output file path entirely
  *        (used in batch mode). Defaults to empty string.
  *
- * @complexity O(R * V * E^2) where R is the number of reviewers (risk analysis
+ * @note Complexity: O(R * V * E^2) where R is the number of reviewers (risk analysis
  * iterations), V is the number of graph vertices, and E is the number of edges.
  * Without risk analysis the complexity is O(V * E^2).
  */

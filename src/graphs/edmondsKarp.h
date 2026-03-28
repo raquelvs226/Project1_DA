@@ -1,9 +1,6 @@
-
-Copy
-
 #ifndef PROJECT1_EDMONDSKARP_H
 #define PROJECT1_EDMONDSKARP_H
-
+1
 #include "Graph.h"
 
 /**
@@ -23,7 +20,7 @@ Copy
  * @param source Index of the source vertex.
  * @param sink Index of the sink vertex.
  *
- * @complexity O(V * E^2) where V is the number of vertices and E is the number of edges.
+ * @note Complexity: O(V * E^2) where V is the number of vertices and E is the number of edges.
  */
 void edmondsKarp(Graph<int>* g, int source, int sink);
 

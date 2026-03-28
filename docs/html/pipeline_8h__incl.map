@@ -1,0 +1,25 @@
+<map id="src/pipeline/pipeline.h" name="src/pipeline/pipeline.h">
+<area shape="rect" id="Node000001" title="Orchestration of the full assignment and risk analysis pipeline." alt="" coords="161,5,327,31"/>
+<area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="141,167,216,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,32,221,54,206,80,193,118,185,154,180,153,188,117,202,78,217,51,232,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,240,64,265"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="234,33,187,80,55,231,51,228,183,77,230,29"/>
+<area shape="rect" id="Node000004" href="$generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="216,79,403,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,29,287,66,283,70,252,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="473,240,535,265"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="313,28,367,46,393,60,416,77,448,112,472,153,489,193,500,226,495,228,484,195,467,155,444,115,413,81,390,64,364,51,312,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,194,72,236,69,231,154,190"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="279,121,211,162,208,157,276,117"/>
+<area shape="rect" id="Node000005" href="$Graph_8h.html" title=" " alt="" coords="243,167,376,192"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="312,119,312,153,307,153,307,119"/>
+<area shape="poly" id="edge11_Node000004_Node000007" title=" " alt="" coords="335,117,480,229,477,233,332,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="88,240,168,265"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="281,195,171,237,169,232,279,190"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="342,190,460,233,459,238,340,195"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="193,240,255,265"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="297,194,250,233,247,229,294,190"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="280,240,339,265"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="312,192,312,226,307,226,307,192"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="363,240,448,265"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="326,190,380,229,377,234,323,194"/>
+</map>

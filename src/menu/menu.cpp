@@ -35,7 +35,7 @@ static bool loadDataset(vector<Submission>& submissions,
     cout << "Enter dataset filename: " << flush;
     cin >> filename;
 
-    string path = "../../input/" + filename;
+    string path = "../../datasets/input/" + filename;
 
     ifstream file(path);
     if (!file.is_open()) {

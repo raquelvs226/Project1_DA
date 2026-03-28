@@ -13,7 +13,7 @@
  * and risk analysis pipeline, and view the currently loaded filename.
  * Loops until the user chooses to exit.
  *
- * @complexity O(N * V * E^2) per pipeline run, where N is the number of
+ * @note Complexity: O(N * V * E^2) per pipeline run, where N is the number of
  * risk analysis iterations, V is the number of graph vertices, and E is
  * the number of edges.
  */

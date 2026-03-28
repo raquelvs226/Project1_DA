@@ -31,7 +31,7 @@ using namespace std;
  * @param sink Output parameter set to the sink node index.
  * @return Pointer to the newly allocated Graph. Caller is responsible for deletion.
  *
- * @complexity O(R * S) where R is the number of reviewers and S is the number of submissions.
+ * @note Complexity: O(R * S) where R is the number of reviewers and S is the number of submissions.
  */
 Graph<int>* buildGraph(vector<Submission> &submissions,
                        vector<Reviewer> &reviewers,

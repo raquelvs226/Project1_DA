@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     if (argc == 4 && string(argv[1]) == "-b") {
         string inputFilename = argv[2];
         string outputFilename = argv[3];
-        string path = "../../input/" + inputFilename;
+        string path = "../../datasets/input/" + inputFilename;
 
         vector<Submission> submissions;
         vector<Reviewer> reviewers;
