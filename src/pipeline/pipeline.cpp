@@ -11,7 +11,8 @@ void runPipeline(
     std::vector<Submission>& submissions,
     std::vector<Reviewer>& reviewers,
     Parameters& params,
-    Control& control)
+    Control& control,
+    const std::string& outputPathOverride)
 {
     if (control.OutputFileName.empty())
         control.OutputFileName = "output.csv";
@@ -35,10 +36,14 @@ void runPipeline(
         riskyReviewers = getRiskyReviewers(submissions, reviewers, params, control);
 
     std::string outputPath;
-    if (control.GenerateAssignments == 0 && control.RiskAnalysis == 1)
-        outputPath = "../../results/risk/" + control.OutputFileName;
-    else
-        outputPath = "../../results/" + control.OutputFileName;
+    if (!outputPathOverride.empty()) {
+        outputPath = outputPathOverride;
+    } else {
+        if (control.GenerateAssignments == 0 && control.RiskAnalysis == 1)
+            outputPath = "../../results/risk/" + control.OutputFileName;
+        else
+            outputPath = "../../results/" + control.OutputFileName;
+    }
 
     writeOutputCSV(outputPath, assignments, riskyReviewers, submissions, reviewers, params, control);
 

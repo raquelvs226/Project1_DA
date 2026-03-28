@@ -35,8 +35,7 @@ int main(int argc, char* argv[]) {
 
         try {
             parseCSV(path, submissions, reviewers, params, control);
-            control.OutputFileName = outputFilename;
-            runPipeline(submissions, reviewers, params, control);
+            runPipeline(submissions, reviewers, params, control, outputFilename);
             return 0;
         }
         catch (const exception& e) {

@@ -11,6 +11,7 @@ void runPipeline(
     std::vector<Submission>& submissions,
     std::vector<Reviewer>& reviewers,
     Parameters& params,
-    Control& control);
+    Control& control,
+    const std::string& outputPathOverride = "");
 
 #endif //PROJECT1_PIPELINE_H
