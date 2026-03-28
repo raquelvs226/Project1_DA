@@ -1,6 +1,6 @@
 #ifndef PROJECT1_EDMONDSKARP_H
 #define PROJECT1_EDMONDSKARP_H
-1
+
 #include "Graph.h"
 
 /**
