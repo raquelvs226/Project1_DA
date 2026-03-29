@@ -18,6 +18,7 @@ var searchData=
   ['setvisited_15',['setVisited',['../classVertex.html#a95a3f3c55f2ba371fae51d3fe0e76c23',1,'Vertex']]],
   ['stringify_16',['stringify',['../CMakeCCompilerId_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],
   ['stringify_5fhelper_17',['stringify_helper',['../CMakeCCompilerId_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp']]],
-  ['submission_18',['Submission',['../structSubmission.html',1,'']]],
-  ['submissionid_19',['submissionId',['../structAssignment.html#a19c094cacc0df98064feef4ccd3553ee',1,'Assignment']]]
+  ['structure_18',['Project Structure',['../index.html#structure',1,'']]],
+  ['submission_19',['Submission',['../structSubmission.html',1,'']]],
+  ['submissionid_20',['submissionId',['../structAssignment.html#a19c094cacc0df98064feef4ccd3553ee',1,'Assignment']]]
 ];

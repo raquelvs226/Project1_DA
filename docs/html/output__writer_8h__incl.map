@@ -1,5 +1,5 @@
-<map id="src/output_writer/output_writer.h" name="src/output_writer/output_writer.h">
-<area shape="rect" id="Node000001" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="155,5,333,45"/>
+<map id="output_writer/output_writer.h" name="output_writer/output_writer.h">
+<area shape="rect" id="Node000001" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="167,5,321,45"/>
 <area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="141,181,216,207"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,47,206,94,194,133,186,168,180,167,189,131,202,92,228,44"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,255,64,280"/>
@@ -7,7 +7,7 @@
 <area shape="rect" id="Node000004" href="$generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="216,93,403,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="261,44,289,81,285,84,256,47"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="473,255,535,280"/>
-<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="327,43,374,62,416,91,447,127,471,168,489,207,500,240,495,242,484,209,467,170,443,130,413,95,371,67,325,48"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="322,42,371,61,416,91,447,127,471,168,489,207,500,240,495,242,484,209,467,170,443,130,413,95,369,66,320,46"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,209,72,251,69,246,154,204"/>
 <area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="279,136,211,176,208,172,276,131"/>
 <area shape="rect" id="Node000005" href="$Graph_8h.html" title=" " alt="" coords="243,181,376,207"/>

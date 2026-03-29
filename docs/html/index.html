@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Programming Project I: Main Page</title>
+<title>Programming Project I: Programming Project I - Conference Assignment Tool</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,10 +68,32 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Programming Project I Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Programming Project I - Conference <a class="el" href="structAssignment.html" title="Represents a single reviewer-to-submission assignment.">Assignment</a> Tool </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro"></a>
+Introduction</h1>
+<p>Tool for assigning paper submissions to reviewers at scientific conferences, formulated as a Maximum Flow problem using the Edmonds-Karp algorithm.</p>
+<h1><a class="anchor" id="structure"></a>
+Project Structure</h1>
+<ul>
+<li><b>parser</b> — reads and parses the input CSV dataset</li>
+<li><b>graph_builder</b> — constructs the max-flow network</li>
+<li><b>edmondsKarp</b> — computes the maximum flow</li>
+<li><b>generate_assignments</b> — extracts assignments from the flow solution</li>
+<li><b>risk_analysis</b> — identifies critical reviewers</li>
+<li><b>output_writer</b> — writes results to CSV</li>
+<li><b>pipeline</b> — orchestrates the full workflow</li>
+<li><b>menu</b> — interactive command-line interface</li>
+</ul>
+<h1><a class="anchor" id="authors"></a>
+Authors</h1>
+<ul>
+<li>Nuno Gonçalves</li>
+<li>Raquel Silva </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

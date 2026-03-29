@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Programming Project I: src/output_writer/output_writer.cpp File Reference</title>
+<title>Programming Project I: output_writer/output_writer.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0b9c4b8ebed4a07d44b9aa635c19fe7.html">output_writer</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f4f1e2a5e8f35cda047c266336d65c39.html">output_writer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -79,7 +79,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="output__writer_8h_source.html">output_writer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="generate__assignments_8h_source.html">../generate_assignments/generate_assignments.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
@@ -87,50 +86,79 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for output_writer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="output__writer_8cpp__incl.png" border="0" usemap="#asrc_2output__writer_2output__writer_8cpp" alt=""/></div>
-<map name="asrc_2output__writer_2output__writer_8cpp" id="asrc_2output__writer_2output__writer_8cpp">
-<area shape="rect" title=" " alt="" coords="352,5,531,45"/>
-<area shape="rect" href="output__writer_8h.html" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="95,93,215,119"/>
-<area shape="poly" title=" " alt="" coords="373,48,210,92,209,87,372,43"/>
-<area shape="rect" href="generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="192,167,379,207"/>
-<area shape="poly" title=" " alt="" coords="425,47,315,159,311,155,421,44"/>
-<area shape="rect" title=" " alt="" coords="376,328,456,353"/>
-<area shape="poly" title=" " alt="" coords="442,46,421,314,415,314,437,46"/>
-<area shape="rect" title=" " alt="" coords="480,328,565,353"/>
-<area shape="poly" title=" " alt="" coords="449,45,519,314,514,315,444,46"/>
-<area shape="rect" title=" " alt="" coords="505,93,578,119"/>
-<area shape="poly" title=" " alt="" coords="467,43,517,82,514,87,464,48"/>
-<area shape="rect" title=" " alt="" coords="602,93,689,119"/>
-<area shape="poly" title=" " alt="" coords="491,43,603,86,601,91,489,48"/>
-<area shape="rect" href="data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="43,255,117,280"/>
-<area shape="poly" title=" " alt="" coords="152,120,94,243,89,241,147,118"/>
-<area shape="rect" title=" " alt="" coords="5,328,64,353"/>
-<area shape="poly" title=" " alt="" coords="142,121,116,143,85,174,55,212,33,255,29,285,31,314,26,315,23,285,28,254,51,210,81,171,112,139,138,117"/>
-<area shape="poly" title=" " alt="" coords="175,117,244,157,241,162,173,121"/>
-<area shape="rect" title=" " alt="" coords="118,328,181,353"/>
-<area shape="poly" title=" " alt="" coords="157,119,153,314,147,314,152,119"/>
-<area shape="poly" title=" " alt="" coords="75,282,52,318,47,315,70,279"/>
-<area shape="poly" title=" " alt="" coords="237,209,124,252,122,247,235,204"/>
-<area shape="rect" href="Graph_8h.html" title=" " alt="" coords="245,255,379,280"/>
-<area shape="poly" title=" " alt="" coords="294,206,306,241,301,242,289,208"/>
-<area shape="poly" title=" " alt="" coords="270,209,171,319,167,316,266,205"/>
-<area shape="poly" title=" " alt="" coords="330,278,389,318,386,322,327,282"/>
-<area shape="poly" title=" " alt="" coords="287,282,190,325,187,320,285,278"/>
-<area shape="rect" title=" " alt="" coords="289,328,351,353"/>
-<area shape="poly" title=" " alt="" coords="316,280,320,314,315,315,311,281"/>
-<area shape="rect" title=" " alt="" coords="205,328,264,353"/>
-<area shape="poly" title=" " alt="" coords="301,282,259,320,256,317,298,278"/>
-<area shape="poly" title=" " alt="" coords="347,277,477,321,475,326,345,283"/>
+<div class="center"><img src="output__writer_8cpp__incl.png" border="0" usemap="#aoutput__writer_2output__writer_8cpp" alt=""/></div>
+<map name="aoutput__writer_2output__writer_8cpp" id="aoutput__writer_2output__writer_8cpp">
+<area shape="rect" title=" " alt="" coords="425,5,580,45"/>
+<area shape="rect" href="output__writer_8h.html" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="443,93,563,119"/>
+<area shape="poly" title=" " alt="" coords="505,46,505,79,500,79,500,46"/>
+<area shape="rect" title=" " alt="" coords="5,328,85,353"/>
+<area shape="poly" title=" " alt="" coords="460,48,363,96,239,169,188,205,126,257,93,288,66,319,62,315,89,285,122,253,185,201,236,164,360,91,457,43"/>
+<area shape="rect" title=" " alt="" coords="280,328,365,353"/>
+<area shape="poly" title=" " alt="" coords="466,48,432,68,396,95,361,129,334,168,322,205,317,245,317,283,321,314,315,314,312,283,311,245,316,204,330,165,357,125,392,91,429,64,464,43"/>
+<area shape="rect" title=" " alt="" coords="587,93,661,119"/>
+<area shape="poly" title=" " alt="" coords="533,43,596,84,593,88,531,48"/>
+<area shape="rect" title=" " alt="" coords="685,93,771,119"/>
+<area shape="poly" title=" " alt="" coords="558,43,683,86,681,91,556,48"/>
+<area shape="rect" href="data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="599,255,673,280"/>
+<area shape="poly" title=" " alt="" coords="526,117,558,137,589,165,614,203,630,240,625,243,609,206,585,168,554,141,523,121"/>
+<area shape="rect" title=" " alt="" coords="644,328,703,353"/>
+<area shape="poly" title=" " alt="" coords="534,116,576,136,619,165,662,203,676,224,688,254,691,286,685,315,680,314,686,285,683,255,671,227,658,207,616,169,574,141,532,121"/>
+<area shape="rect" href="generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="344,167,531,207"/>
+<area shape="poly" title=" " alt="" coords="495,121,464,158,460,154,491,117"/>
+<area shape="rect" title=" " alt="" coords="406,328,469,353"/>
+<area shape="poly" title=" " alt="" coords="516,117,532,139,545,166,549,187,545,208,529,242,508,273,463,321,459,317,503,269,524,239,540,206,544,187,540,168,527,141,511,121"/>
+<area shape="poly" title=" " alt="" coords="645,279,663,315,659,317,640,282"/>
+<area shape="poly" title=" " alt="" coords="486,204,595,247,593,252,484,209"/>
+<area shape="rect" href="Graph_8h.html" title=" " alt="" coords="136,255,269,280"/>
+<area shape="poly" title=" " alt="" coords="382,209,251,253,249,248,380,204"/>
+<area shape="poly" title=" " alt="" coords="440,207,440,314,435,314,435,207"/>
+<area shape="poly" title=" " alt="" coords="178,282,84,325,82,320,176,278"/>
+<area shape="poly" title=" " alt="" coords="241,277,394,323,392,328,240,283"/>
+<area shape="rect" title=" " alt="" coords="193,328,255,353"/>
+<area shape="poly" title=" " alt="" coords="209,280,219,314,214,316,204,281"/>
+<area shape="rect" title=" " alt="" coords="109,328,168,353"/>
+<area shape="poly" title=" " alt="" coords="194,282,160,320,156,316,190,279"/>
+<area shape="poly" title=" " alt="" coords="223,278,292,318,290,323,221,282"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac83ca3622066f9c72a82861ca7810484" id="r_ac83ca3622066f9c72a82861ca7810484"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output__writer_8cpp.html#ac83ca3622066f9c72a82861ca7810484">countReceivedReviews</a> (<a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structAssignment.html">Assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>, <a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;<a class="el" href="classEdge.html">submissions</a>)</td></tr>
+<tr class="separator:ac83ca3622066f9c72a82861ca7810484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c5d0f295d4051f5989cd59abc986b4c" id="r_a1c5d0f295d4051f5989cd59abc986b4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output__writer_8cpp.html#a1c5d0f295d4051f5989cd59abc986b4c">writeOutputCSV</a> (<a class="el" href="classEdge.html">const</a> std::string &amp;<a class="el" href="classEdge.html">filename</a>, <a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structAssignment.html">Assignment</a> &gt; &amp;<a class="el" href="classEdge.html">assignments</a>, <a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="classEdge.html">int</a> &gt; &amp;<a class="el" href="classEdge.html">riskyReviewers</a>, std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;<a class="el" href="classEdge.html">submissions</a>, std::vector&lt; <a class="el" href="structReviewer.html">Reviewer</a> &gt; &amp;<a class="el" href="classEdge.html">reviewers</a>, <a class="el" href="structParameters.html">Parameters</a> &amp;<a class="el" href="classEdge.html">params</a>, <a class="el" href="structControl.html">Control</a> &amp;<a class="el" href="classEdge.html">control</a>)</td></tr>
 <tr class="memdesc:a1c5d0f295d4051f5989cd59abc986b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the assignment results and risk analysis output to a CSV file.  <br /></td></tr>
 <tr class="separator:a1c5d0f295d4051f5989cd59abc986b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ac83ca3622066f9c72a82861ca7810484" name="ac83ca3622066f9c72a82861ca7810484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac83ca3622066f9c72a82861ca7810484">&#9670;&#160;</a></span>countReceivedReviews()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classEdge.html">int</a> &gt; countReceivedReviews </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structAssignment.html">Assignment</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>assignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classEdge.html">const</a> std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>submissions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1c5d0f295d4051f5989cd59abc986b4c" name="a1c5d0f295d4051f5989cd59abc986b4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c5d0f295d4051f5989cd59abc986b4c">&#9670;&#160;</a></span>writeOutputCSV()</h2>
 
@@ -200,11 +228,10 @@ Functions</h2></td></tr>
     <tr><td class="paramname">submissions</td><td>List of all submissions (used for missing review reporting). </td></tr>
     <tr><td class="paramname">reviewers</td><td>List of all reviewers. </td></tr>
     <tr><td class="paramname">params</td><td>Problem parameters (used to determine MinReviewsPerSubmission). </td></tr>
-    <tr><td class="paramname">control</td><td>Execution control options (determines which sections to write).</td></tr>
+    <tr><td class="paramname">control</td><td>Execution control options (determines which sections to write). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Complexity: O(A * log(A)) where A is the number of assignments, due to sorting. </dd></dl>
 
 </div>
 </div>

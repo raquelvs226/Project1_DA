@@ -1,4 +1,4 @@
-<map id="src/generate_assignments/generate_assignments.cpp" name="src/generate_assignments/generate_assignments.cpp">
+<map id="generate_assignments/generate_assignments.cpp" name="generate_assignments/generate_assignments.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="22,5,223,45"/>
 <area shape="rect" id="Node000002" href="$generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="31,93,214,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,46,125,79,120,79,120,46"/>

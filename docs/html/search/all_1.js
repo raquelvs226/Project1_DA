@@ -6,6 +6,7 @@ var searchData=
   ['adj_3',['adj',['../classVertex.html#adb48310bebc687c86e90d2a20215642f',1,'Vertex']]],
   ['architecture_5fid_4',['architecture_id',['../CMakeCCompilerId_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCXXCompilerId.cpp']]],
   ['assignment_5',['Assignment',['../structAssignment.html',1,'']]],
-  ['augmentflowalongpath_6',['augmentFlowAlongPath',['../edmondsKarp_8cpp.html#a9813dc412187df7cc322afea1283c22c',1,'edmondsKarp.cpp']]],
-  ['authors_7',['authors',['../structSubmission.html#a853f337b093f91f4192c70df3e02d631',1,'Submission']]]
+  ['assignment_20tool_6',['Programming Project I - Conference Assignment Tool',['../index.html',1,'']]],
+  ['augmentflowalongpath_7',['augmentFlowAlongPath',['../edmondsKarp_8cpp.html#a9813dc412187df7cc322afea1283c22c',1,'edmondsKarp.cpp']]],
+  ['authors_8',['authors',['../structSubmission.html#a853f337b093f91f4192c70df3e02d631',1,'Submission::authors'],['../index.html#authors',1,'Authors']]]
 ];

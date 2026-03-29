@@ -29,7 +29,6 @@
  * @param params Problem parameters (used to determine MinReviewsPerSubmission).
  * @param control Execution control options (determines which sections to write).
  *
- * @note Complexity: O(A * log(A)) where A is the number of assignments, due to sorting.
  */
 void writeOutputCSV(
     const std::string& filename,

@@ -20,7 +20,6 @@
  * @param control Execution control options containing the assignment mode.
  * @return The matched domain ID if compatible, or -1 if there is no match.
  *
- * @note Complexity:O(1)
  */
 int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control);
 
@@ -34,7 +33,6 @@ int getMatchDomain(const Reviewer &r, const Submission &s, const Control &contro
  * @param control Execution control options containing the assignment mode.
  * @return true if the reviewer can review the submission, false otherwise.
  *
- * @note Complexity: O(1)
  */
 bool isCompatible(const Reviewer &r, const Submission &s, const Control &control);
 

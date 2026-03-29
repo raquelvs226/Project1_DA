@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Programming Project I: src/generate_assignments/generate_assignments.h Source File</title>
+<title>Programming Project I: generate_assignments/generate_assignments.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,7 +74,7 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d7d175c20be43df1a9b0ac71c72c836d.html">generate_assignments</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_de83ddb1805bb00401da738d18e4e5fa.html">generate_assignments</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -103,14 +103,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">int</span> firstReviewerNode,</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> firstSubmissionNode);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>std::vector&lt;int&gt; <a class="code hl_function" href="generate__assignments_8h.html#ac83ca3622066f9c72a82861ca7810484">countReceivedReviews</a>(</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> std::vector&lt;Assignment&gt;&amp; assignments,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> std::vector&lt;Submission&gt;&amp; submissions);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif </span><span class="comment">// PROJECT1_GENERATE_ASSIGNMENTS_H</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">// PROJECT1_GENERATE_ASSIGNMENTS_H</span></div>
 <div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdef"><b>Definition</b> Graph.h:110</div></div>
 <div class="ttc" id="agenerate__assignments_8h_html_a6a7d87ebe39e8e21099b74c409f12227"><div class="ttname"><a href="generate__assignments_8h.html#a6a7d87ebe39e8e21099b74c409f12227">extractAssignments</a></div><div class="ttdeci">std::vector&lt; Assignment &gt; extractAssignments(Graph&lt; int &gt; *g, const std::vector&lt; Submission &gt; &amp;submissions, const std::vector&lt; Reviewer &gt; &amp;reviewers, int firstReviewerNode, int firstSubmissionNode)</div><div class="ttdoc">Extracts the list of reviewer-submission assignments from the flow graph.</div><div class="ttdef"><b>Definition</b> generate_assignments.cpp:3</div></div>
-<div class="ttc" id="agenerate__assignments_8h_html_ac83ca3622066f9c72a82861ca7810484"><div class="ttname"><a href="generate__assignments_8h.html#ac83ca3622066f9c72a82861ca7810484">countReceivedReviews</a></div><div class="ttdeci">std::vector&lt; int &gt; countReceivedReviews(const std::vector&lt; Assignment &gt; &amp;assignments, const std::vector&lt; Submission &gt; &amp;submissions)</div><div class="ttdoc">Counts how many reviews each submission has received.</div><div class="ttdef"><b>Definition</b> generate_assignments.cpp:38</div></div>
 <div class="ttc" id="astructAssignment_html"><div class="ttname"><a href="structAssignment.html">Assignment</a></div><div class="ttdoc">Represents a single reviewer-to-submission assignment.</div><div class="ttdef"><b>Definition</b> generate_assignments.h:17</div></div>
 <div class="ttc" id="astructAssignment_html_a19c094cacc0df98064feef4ccd3553ee"><div class="ttname"><a href="structAssignment.html#a19c094cacc0df98064feef4ccd3553ee">Assignment::submissionId</a></div><div class="ttdeci">int submissionId</div><div class="ttdoc">ID of the submission being reviewed.</div><div class="ttdef"><b>Definition</b> generate_assignments.h:18</div></div>
 <div class="ttc" id="astructAssignment_html_a64b615aa37f57e21f3aac7422099322e"><div class="ttname"><a href="structAssignment.html#a64b615aa37f57e21f3aac7422099322e">Assignment::matchDomain</a></div><div class="ttdeci">int matchDomain</div><div class="ttdoc">Domain through which the match was made.</div><div class="ttdef"><b>Definition</b> generate_assignments.h:20</div></div>

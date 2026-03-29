@@ -1,5 +1,5 @@
-<map id="src/pipeline/pipeline.h" name="src/pipeline/pipeline.h">
-<area shape="rect" id="Node000001" title="Orchestration of the full assignment and risk analysis pipeline." alt="" coords="161,5,327,31"/>
+<map id="pipeline/pipeline.h" name="pipeline/pipeline.h">
+<area shape="rect" id="Node000001" title="Orchestration of the full assignment and risk analysis pipeline." alt="" coords="173,5,315,31"/>
 <area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="141,167,216,192"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,32,221,54,206,80,193,118,185,154,180,153,188,117,202,78,217,51,232,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,240,64,265"/>

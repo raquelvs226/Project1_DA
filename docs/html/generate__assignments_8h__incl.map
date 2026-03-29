@@ -1,5 +1,5 @@
-<map id="src/generate_assignments/generate_assignments.h" name="src/generate_assignments/generate_assignments.h">
-<area shape="rect" id="Node000001" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="26,5,219,45"/>
+<map id="generate_assignments/generate_assignments.h" name="generate_assignments/generate_assignments.h">
+<area shape="rect" id="Node000001" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="29,5,216,45"/>
 <area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="5,93,80,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,47,66,85,63,82,101,44"/>
 <area shape="rect" id="Node000004" href="$Graph_8h.html" title=" " alt="" coords="204,93,337,119"/>

@@ -1,5 +1,5 @@
-<map id="src/graph_builder/graph_builder.cpp" name="src/graph_builder/graph_builder.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,264,45"/>
+<map id="graph_builder/graph_builder.cpp" name="graph_builder/graph_builder.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,253,45"/>
 <area shape="rect" id="Node000002" href="$graph__builder_8h.html" title="Function for constructing the max&#45;flow graph from the problem data." alt="" coords="202,93,325,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,44,242,82,238,86,196,48"/>
 <area shape="rect" id="Node000011" href="$matching_8h.html" title="Functions for determining compatibility between reviewers and submissions." alt="" coords="5,93,177,119"/>

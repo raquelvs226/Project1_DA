@@ -1,5 +1,5 @@
-<map id="src/graph_builder/graph_builder.h" name="src/graph_builder/graph_builder.h">
-<area shape="rect" id="Node000001" title="Function for constructing the max&#45;flow graph from the problem data." alt="" coords="35,5,210,45"/>
+<map id="graph_builder/graph_builder.h" name="graph_builder/graph_builder.h">
+<area shape="rect" id="Node000001" title="Function for constructing the max&#45;flow graph from the problem data." alt="" coords="47,5,199,45"/>
 <area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="5,93,80,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,47,66,85,63,82,101,44"/>
 <area shape="rect" id="Node000004" href="$Graph_8h.html" title=" " alt="" coords="204,93,337,119"/>

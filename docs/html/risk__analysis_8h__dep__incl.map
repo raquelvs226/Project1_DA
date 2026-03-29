@@ -1,7 +1,7 @@
-<map id="src/risk_analysis/risk_analysis.h" name="src/risk_analysis/risk_analysis.h">
-<area shape="rect" id="Node000001" title="Function for identifying critical reviewers in the assignment." alt="" coords="112,5,271,45"/>
-<area shape="rect" id="Node000002" href="$pipeline_8cpp.html" title=" " alt="" coords="5,101,185,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,57,110,102,107,98,158,53"/>
-<area shape="rect" id="Node000003" href="$risk__analysis_8cpp.html" title=" " alt="" coords="209,93,368,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,52,269,91,265,95,221,56"/>
+<map id="risk_analysis/risk_analysis.h" name="risk_analysis/risk_analysis.h">
+<area shape="rect" id="Node000001" title="Function for identifying critical reviewers in the assignment." alt="" coords="102,5,237,45"/>
+<area shape="rect" id="Node000002" href="$pipeline_8cpp.html" title=" " alt="" coords="5,101,163,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,57,98,102,94,98,139,53"/>
+<area shape="rect" id="Node000003" href="$risk__analysis_8cpp.html" title=" " alt="" coords="187,93,322,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,53,238,91,234,95,196,57"/>
 </map>

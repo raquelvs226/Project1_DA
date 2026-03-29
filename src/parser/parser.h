@@ -26,7 +26,6 @@ using namespace std;
  * @param params Output struct populated with the problem parameters.
  * @param control Output struct populated with the execution control options.
  *
- * @note Complexity: O(N) where N is the number of lines in the input file.
  */
 void parseCSV(const string &filename,
               vector<Submission> &submissions,

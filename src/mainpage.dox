@@ -1,0 +1,21 @@
+/**
+ * @mainpage Programming Project I - Conference Assignment Tool
+ *
+ * @section intro Introduction
+ * Tool for assigning paper submissions to reviewers at scientific conferences,
+ * formulated as a Maximum Flow problem using the Edmonds-Karp algorithm.
+ *
+ * @section structure Project Structure
+ * - **parser** — reads and parses the input CSV dataset
+ * - **graph_builder** — constructs the max-flow network
+ * - **edmondsKarp** — computes the maximum flow
+ * - **generate_assignments** — extracts assignments from the flow solution
+ * - **risk_analysis** — identifies critical reviewers
+ * - **output_writer** — writes results to CSV
+ * - **pipeline** — orchestrates the full workflow
+ * - **menu** — interactive command-line interface
+ *
+ * @section authors Authors
+ * - Nuno Gonçalves
+ * - Raquel Silva
+ */

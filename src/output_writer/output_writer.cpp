@@ -1,5 +1,4 @@
 #include "output_writer.h"
-#include "../generate_assignments/generate_assignments.h"
 
 #include <algorithm>
 #include <fstream>
@@ -20,6 +19,24 @@ static std::vector<Assignment> sortedByReviewer(std::vector<Assignment> v) {
         return a.submissionId < b.submissionId;
     });
     return v;
+}
+
+std::vector<int> countReceivedReviews(
+    const std::vector<Assignment>& assignments,
+    const std::vector<Submission>& submissions)
+{
+    std::vector<int> counts(submissions.size(), 0);
+
+    for (const auto& a : assignments) {
+        for (int j = 0; j < static_cast<int>(submissions.size()); j++) {
+            if (submissions[j].id == a.submissionId) {
+                counts[j]++;
+                break;
+            }
+        }
+    }
+
+    return counts;
 }
 
 void writeOutputCSV(

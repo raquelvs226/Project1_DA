@@ -1,36 +1,35 @@
-<map id="src/graphs/Graph.h" name="src/graphs/Graph.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="923,5,1067,31"/>
-<area shape="rect" id="Node000002" href="$generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="361,79,554,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="909,34,554,86,554,81,909,29"/>
-<area shape="rect" id="Node000010" href="$graph__builder_8h.html" title="Function for constructing the max&#45;flow graph from the problem data." alt="" coords="803,79,978,119"/>
-<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="970,41,917,81,914,76,967,37"/>
-<area shape="rect" id="Node000013" href="$edmondsKarp_8cpp.html" title=" " alt="" coords="1221,174,1432,199"/>
-<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="1080,19,1124,25,1171,36,1218,53,1260,77,1284,99,1303,126,1325,173,1320,175,1298,129,1280,103,1257,81,1215,58,1170,41,1123,31,1080,25"/>
-<area shape="rect" id="Node000014" href="$edmondsKarp_8h.html" title="Implementation of the Edmonds&#45;Karp maximum flow algorithm." alt="" coords="1052,86,1247,111"/>
-<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="1031,35,1128,83,1125,88,1029,39"/>
-<area shape="rect" id="Node000003" href="$generate__assignments_8cpp.html" title=" " alt="" coords="461,167,662,207"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="493,126,540,164,537,169,489,130"/>
-<area shape="rect" id="Node000004" href="$output__writer_8cpp.html" title=" " alt="" coords="5,255,184,295"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="347,106,262,112,176,123,103,142,76,154,58,168,52,178,50,188,54,211,65,233,80,253,75,256,61,236,49,212,45,188,47,176,54,165,73,149,101,137,175,118,261,106,346,100"/>
-<area shape="rect" id="Node000005" href="$output__writer_8h.html" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="68,167,247,207"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="379,125,224,169,222,164,377,120"/>
-<area shape="rect" id="Node000006" href="$pipeline_8cpp.html" title=" " alt="" coords="610,262,790,287"/>
-<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="568,109,625,129,652,145,675,165,691,189,699,215,703,261,698,262,694,217,686,191,671,168,649,149,623,134,567,114"/>
-<area shape="rect" id="Node000007" href="$pipeline_8h.html" title="Orchestration of the full assignment and risk analysis pipeline." alt="" coords="271,174,436,199"/>
-<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="425,130,369,176,366,171,422,126"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="137,220,111,256,106,253,133,216"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="261,204,620,259,619,265,260,210"/>
-<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="413,200,655,259,653,265,412,205"/>
-<area shape="rect" id="Node000008" href="$main_8cpp.html" title=" " alt="" coords="210,262,315,287"/>
-<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="333,211,277,263,273,260,329,207"/>
-<area shape="rect" id="Node000009" href="$menu_8cpp.html" title=" " alt="" coords="339,262,490,287"/>
-<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="372,209,408,260,404,263,368,212"/>
-<area shape="poly" id="edge14_Node000010_Node000006" title=" " alt="" coords="838,127,807,146,778,169,755,193,735,219,708,263,704,260,731,216,751,189,774,165,804,142,835,123"/>
-<area shape="rect" id="Node000011" href="$graph__builder_8cpp.html" title=" " alt="" coords="789,167,963,207"/>
-<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="888,133,882,167,877,166,882,132"/>
-<area shape="rect" id="Node000012" href="$risk__analysis_8cpp.html" title=" " alt="" coords="987,167,1146,207"/>
-<area shape="poly" id="edge15_Node000010_Node000012" title=" " alt="" coords="943,122,1029,164,1027,169,940,127"/>
-<area shape="poly" id="edge19_Node000014_Node000006" title=" " alt="" coords="1163,123,1172,166,1170,188,1159,208,1134,227,1098,242,1053,254,1002,262,892,273,791,276,790,271,892,267,1001,257,1052,248,1096,237,1132,223,1155,205,1165,187,1167,166,1157,125"/>
-<area shape="poly" id="edge20_Node000014_Node000012" title=" " alt="" coords="1131,123,1087,168,1083,164,1127,119"/>
-<area shape="poly" id="edge18_Node000014_Node000013" title=" " alt="" coords="1186,115,1304,171,1301,176,1184,120"/>
+<map id="graphs/Graph.h" name="graphs/Graph.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="853,5,975,31"/>
+<area shape="rect" id="Node000002" href="$generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="382,79,569,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="840,35,569,83,568,78,839,30"/>
+<area shape="rect" id="Node000010" href="$graph__builder_8h.html" title="Function for constructing the max&#45;flow graph from the problem data." alt="" coords="745,79,897,119"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="891,42,845,81,841,76,888,38"/>
+<area shape="rect" id="Node000013" href="$edmondsKarp_8cpp.html" title=" " alt="" coords="1065,174,1251,199"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="989,22,1056,40,1089,55,1119,77,1137,100,1149,127,1159,173,1154,174,1144,128,1132,103,1115,81,1087,60,1054,45,988,28"/>
+<area shape="rect" id="Node000014" href="$edmondsKarp_8h.html" title="Implementation of the Edmonds&#45;Karp maximum flow algorithm." alt="" coords="933,86,1105,111"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="942,37,1005,84,1002,88,939,41"/>
+<area shape="rect" id="Node000003" href="$generate__assignments_8cpp.html" title=" " alt="" coords="5,167,207,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,124,187,169,186,164,380,119"/>
+<area shape="rect" id="Node000004" href="$output__writer_8h.html" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="398,167,553,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="478,133,478,166,473,166,473,133"/>
+<area shape="rect" id="Node000006" href="$pipeline_8cpp.html" title=" " alt="" coords="575,262,733,287"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="517,125,566,165,614,216,648,260,643,263,610,220,563,169,514,129"/>
+<area shape="rect" id="Node000007" href="$pipeline_8h.html" title="Orchestration of the full assignment and risk analysis pipeline." alt="" coords="231,174,373,199"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="426,127,326,176,324,172,424,122"/>
+<area shape="rect" id="Node000005" href="$output__writer_8cpp.html" title=" " alt="" coords="397,255,551,295"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="477,221,477,254,472,254,472,221"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="528,210,631,260,629,264,525,215"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="363,200,608,259,607,265,362,205"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html" title=" " alt="" coords="134,262,217,287"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="275,209,194,264,191,260,272,205"/>
+<area shape="rect" id="Node000009" href="$menu_8cpp.html" title=" " alt="" coords="241,262,368,287"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="305,213,307,261,302,262,300,213"/>
+<area shape="poly" id="edge13_Node000010_Node000006" title=" " alt="" coords="821,133,813,171,805,191,793,208,773,228,749,243,701,264,699,259,747,239,770,224,789,205,800,188,808,170,816,132"/>
+<area shape="rect" id="Node000011" href="$graph__builder_8cpp.html" title=" " alt="" coords="627,167,779,207"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="785,129,731,169,728,164,782,125"/>
+<area shape="rect" id="Node000012" href="$risk__analysis_8cpp.html" title=" " alt="" coords="855,167,989,207"/>
+<area shape="poly" id="edge14_Node000010_Node000012" title=" " alt="" coords="855,126,901,164,898,168,852,130"/>
+<area shape="poly" id="edge18_Node000014_Node000006" title=" " alt="" coords="1025,125,1023,167,1015,190,1003,209,984,222,957,233,887,251,808,264,733,271,732,266,807,258,886,246,955,228,981,217,999,205,1011,187,1017,167,1020,125"/>
+<area shape="poly" id="edge19_Node000014_Node000012" title=" " alt="" coords="998,122,945,169,942,165,994,118"/>
+<area shape="poly" id="edge17_Node000014_Node000013" title=" " alt="" coords="1051,116,1141,171,1138,176,1048,121"/>
 </map>

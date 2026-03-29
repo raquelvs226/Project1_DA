@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Programming Project I: src/output_writer/output_writer.h File Reference</title>
+<title>Programming Project I: output_writer/output_writer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0b9c4b8ebed4a07d44b9aa635c19fe7.html">output_writer</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f4f1e2a5e8f35cda047c266336d65c39.html">output_writer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -88,9 +88,9 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for output_writer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="output__writer_8h__incl.png" border="0" usemap="#asrc_2output__writer_2output__writer_8h" alt=""/></div>
-<map name="asrc_2output__writer_2output__writer_8h" id="asrc_2output__writer_2output__writer_8h">
-<area shape="rect" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="155,5,333,45"/>
+<div class="center"><img src="output__writer_8h__incl.png" border="0" usemap="#aoutput__writer_2output__writer_8h" alt=""/></div>
+<map name="aoutput__writer_2output__writer_8h" id="aoutput__writer_2output__writer_8h">
+<area shape="rect" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="167,5,321,45"/>
 <area shape="rect" href="data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="141,181,216,207"/>
 <area shape="poly" title=" " alt="" coords="233,47,206,94,194,133,186,168,180,167,189,131,202,92,228,44"/>
 <area shape="rect" title=" " alt="" coords="5,255,64,280"/>
@@ -98,7 +98,7 @@ Include dependency graph for output_writer.h:</div>
 <area shape="rect" href="generate__assignments_8h.html" title="Functions for extracting review assignments from a max&#45;flow solution." alt="" coords="216,93,403,133"/>
 <area shape="poly" title=" " alt="" coords="261,44,289,81,285,84,256,47"/>
 <area shape="rect" title=" " alt="" coords="473,255,535,280"/>
-<area shape="poly" title=" " alt="" coords="327,43,374,62,416,91,447,127,471,168,489,207,500,240,495,242,484,209,467,170,443,130,413,95,371,67,325,48"/>
+<area shape="poly" title=" " alt="" coords="322,42,371,61,416,91,447,127,471,168,489,207,500,240,495,242,484,209,467,170,443,130,413,95,369,66,320,46"/>
 <area shape="poly" title=" " alt="" coords="157,209,72,251,69,246,154,204"/>
 <area shape="poly" title=" " alt="" coords="279,136,211,176,208,172,276,131"/>
 <area shape="rect" href="Graph_8h.html" title=" " alt="" coords="243,181,376,207"/>
@@ -118,13 +118,13 @@ Include dependency graph for output_writer.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="output__writer_8h__dep__incl.png" border="0" usemap="#asrc_2output__writer_2output__writer_8hdep" alt=""/></div>
-<map name="asrc_2output__writer_2output__writer_8hdep" id="asrc_2output__writer_2output__writer_8hdep">
-<area shape="rect" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="107,5,285,45"/>
-<area shape="rect" href="output__writer_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
-<area shape="poly" title=" " alt="" coords="165,56,119,95,115,91,161,52"/>
-<area shape="rect" href="pipeline_8cpp.html" title=" " alt="" coords="209,101,389,126"/>
-<area shape="poly" title=" " alt="" coords="231,52,286,98,283,102,228,56"/>
+<div class="center"><img src="output__writer_8h__dep__incl.png" border="0" usemap="#aoutput__writer_2output__writer_8hdep" alt=""/></div>
+<map name="aoutput__writer_2output__writer_8hdep" id="aoutput__writer_2output__writer_8hdep">
+<area shape="rect" title="Function for writing the assignment and risk analysis results to a CSV file." alt="" coords="95,5,249,45"/>
+<area shape="rect" href="output__writer_8cpp.html" title=" " alt="" coords="5,93,160,133"/>
+<area shape="poly" title=" " alt="" coords="144,57,104,95,101,91,140,53"/>
+<area shape="rect" href="pipeline_8cpp.html" title=" " alt="" coords="184,101,341,126"/>
+<area shape="poly" title=" " alt="" coords="204,53,252,98,248,102,200,57"/>
 </map>
 </div>
 </div>
@@ -208,11 +208,10 @@ Functions</h2></td></tr>
     <tr><td class="paramname">submissions</td><td>List of all submissions (used for missing review reporting). </td></tr>
     <tr><td class="paramname">reviewers</td><td>List of all reviewers. </td></tr>
     <tr><td class="paramname">params</td><td>Problem parameters (used to determine MinReviewsPerSubmission). </td></tr>
-    <tr><td class="paramname">control</td><td>Execution control options (determines which sections to write).</td></tr>
+    <tr><td class="paramname">control</td><td>Execution control options (determines which sections to write). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Complexity: O(A * log(A)) where A is the number of assignments, due to sorting. </dd></dl>
 
 </div>
 </div>

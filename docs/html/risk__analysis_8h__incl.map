@@ -1,5 +1,5 @@
-<map id="src/risk_analysis/risk_analysis.h" name="src/risk_analysis/risk_analysis.h">
-<area shape="rect" id="Node000001" title="Function for identifying critical reviewers in the assignment." alt="" coords="10,5,169,45"/>
+<map id="risk_analysis/risk_analysis.h" name="risk_analysis/risk_analysis.h">
+<area shape="rect" id="Node000001" title="Function for identifying critical reviewers in the assignment." alt="" coords="22,5,157,45"/>
 <area shape="rect" id="Node000002" href="$data_8h.html" title="Core data structures used throughout the conference assignment tool." alt="" coords="5,93,80,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,47,59,83,54,80,76,44"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="105,93,167,119"/>

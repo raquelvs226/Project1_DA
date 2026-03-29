@@ -42,17 +42,4 @@ std::vector<Assignment> extractAssignments(
     int firstReviewerNode,
     int firstSubmissionNode);
 
-/**
- * @brief Counts how many reviews each submission has received.
- *
- * @param assignments List of assignments produced by extractAssignments().
- * @param submissions List of all submissions (used to map IDs to indices).
- * @return Vector where position i contains the number of reviews for submissions[i].
- *
- * @note Complexity: O(A * S) where A is the number of assignments and S is the number of submissions.
- */
-std::vector<int> countReceivedReviews(
-    const std::vector<Assignment>& assignments,
-    const std::vector<Submission>& submissions);
-
 #endif // PROJECT1_GENERATE_ASSIGNMENTS_H
