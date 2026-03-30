@@ -23,11 +23,9 @@ void runPipeline(
     edmondsKarp(g, source, sink);
 
     std::vector<Assignment> assignments;
-    if (control.GenerateAssignments != 0) {
-        int firstReviewerNode   = source + 1;
-        int firstSubmissionNode = source + 1 + (int)reviewers.size();
-        assignments = extractAssignments(g, submissions, reviewers, firstReviewerNode, firstSubmissionNode);
-    }
+    int firstReviewerNode   = source + 1;
+    int firstSubmissionNode = source + 1 + (int)reviewers.size();
+    assignments = extractAssignments(g, submissions, reviewers, firstReviewerNode, firstSubmissionNode);
 
     delete g;
 
@@ -36,14 +34,18 @@ void runPipeline(
         riskyReviewers = getRiskyReviewers(submissions, reviewers, params, control);
 
     std::string outputPath;
+    std::string baseName;
+
     if (!outputPathOverride.empty()) {
-        outputPath = outputPathOverride;
+        baseName = outputPathOverride;
     } else {
-        if (control.GenerateAssignments == 0 && control.RiskAnalysis == 1)
-            outputPath = "../../results/risk/" + control.OutputFileName;
-        else
-            outputPath = "../../results/" + control.OutputFileName;
+        baseName = control.OutputFileName;
     }
+
+    if (control.GenerateAssignments == 0 && control.RiskAnalysis == 1)
+        outputPath = "../../results/risk/" + baseName;
+    else
+        outputPath = "../../results/" + baseName;
 
     writeOutputCSV(outputPath, assignments, riskyReviewers, submissions, reviewers, params, control);
 

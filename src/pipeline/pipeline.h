@@ -14,27 +14,33 @@
 /**
  * @brief Runs the full review assignment pipeline.
  *
- * Orchestrates the complete workflow in order:
- * -# Build the max-flow graph with buildGraph().
- * -# Compute maximum flow with edmondsKarp().
- * -# Extract assignments with extractAssignments() (if GenerateAssignments != 0).
- * -# Perform risk analysis with getRiskyReviewers() (if RiskAnalysis == 1).
- * -# Write results to file with writeOutputCSV().
+ * Orchestrates the complete workflow in the following order:
+ * -# Builds the max-flow graph with buildGraph().
+ * -# Computes the maximum flow with edmondsKarp().
+ * -# Extracts assignments with extractAssignments().
+ * -# Performs risk analysis with getRiskyReviewers() if enabled.
+ * -# Writes the results to a CSV file with writeOutputCSV().
  *
- * In batch mode, @p outputPathOverride is used as the exact output path.
- * In interactive menu mode, the path is derived from control.OutputFileName
- * using a relative path convention.
+ * The output file name is determined as follows:
+ * - If @p outputPathOverride is non-empty, it is used as the output file name.
+ * - Otherwise, control.OutputFileName is used.
  *
- * @param submissions List of paper submissions.
- * @param reviewers List of available reviewers.
+ * The final output path is then constructed automatically:
+ * - "../../results/" for normal execution
+ * - "../../results/risk/" when only risk analysis is performed
+ *
+ * @param submissions List of submissions.
+ * @param reviewers List of reviewers.
  * @param params Problem parameters.
  * @param control Execution control options.
- * @param outputPathOverride If non-empty, overrides the output file path entirely
- *        (used in batch mode). Defaults to empty string.
+ * @param outputPathOverride Optional output file name override. If non-empty,
+ *        it replaces control.OutputFileName, but the output directory is still
+ *        determined automatically by the pipeline.
  *
- * @note Complexity: O(R * V * E^2) where R is the number of reviewers (risk analysis
- * iterations), V is the number of graph vertices, and E is the number of edges.
- * Without risk analysis the complexity is O(V * E^2).
+ * @note Complexity: O(R * V * E^2), where R is the number of reviewers
+ * considered during risk analysis, V is the number of graph vertices, and
+ * E is the number of graph edges. Without risk analysis, the complexity is
+ * O(V * E^2).
  */
 void runPipeline(
     std::vector<Submission>& submissions,
@@ -43,4 +49,4 @@ void runPipeline(
     Control& control,
     const std::string& outputPathOverride = "");
 
-#endif //PROJECT1_PIPELINE_H
+#endif // PROJECT1_PIPELINE_H

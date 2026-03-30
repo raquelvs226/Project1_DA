@@ -190,25 +190,32 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Runs the full review assignment pipeline. </p>
-<p>Orchestrates the complete workflow in order:</p><ol type="1">
-<li>Build the max-flow graph with <a class="el" href="graph__builder_8cpp.html#a7ce92f8d167fc89966ccfba35ca5e195" title="Builds the max-flow network graph for the review assignment problem.">buildGraph()</a>.</li>
-<li>Compute maximum flow with <a class="el" href="edmondsKarp_8cpp.html#a1f30e5067c5fae719fd0016a0b5d8573" title="Computes the maximum flow in a graph using the Edmonds-Karp algorithm.">edmondsKarp()</a>.</li>
-<li>Extract assignments with <a class="el" href="generate__assignments_8cpp.html#a6a7d87ebe39e8e21099b74c409f12227" title="Extracts the list of reviewer-submission assignments from the flow graph.">extractAssignments()</a> (if GenerateAssignments != 0).</li>
-<li>Perform risk analysis with <a class="el" href="risk__analysis_8cpp.html#a9ab77ab9ec3b5c514f27bbb84b22efa4" title="Identifies reviewers whose absence would make a full assignment impossible.">getRiskyReviewers()</a> (if RiskAnalysis == 1).</li>
-<li>Write results to file with <a class="el" href="output__writer_8cpp.html#a1c5d0f295d4051f5989cd59abc986b4c" title="Writes the assignment results and risk analysis output to a CSV file.">writeOutputCSV()</a>.</li>
+<p>Orchestrates the complete workflow in the following order:</p><ol type="1">
+<li>Builds the max-flow graph with <a class="el" href="graph__builder_8cpp.html#a7ce92f8d167fc89966ccfba35ca5e195" title="Builds the max-flow network graph for the review assignment problem.">buildGraph()</a>.</li>
+<li>Computes the maximum flow with <a class="el" href="edmondsKarp_8cpp.html#a1f30e5067c5fae719fd0016a0b5d8573" title="Computes the maximum flow in a graph using the Edmonds-Karp algorithm.">edmondsKarp()</a>.</li>
+<li>Extracts assignments with <a class="el" href="generate__assignments_8cpp.html#a6a7d87ebe39e8e21099b74c409f12227" title="Extracts the list of reviewer-submission assignments from the flow graph.">extractAssignments()</a>.</li>
+<li>Performs risk analysis with <a class="el" href="risk__analysis_8cpp.html#a9ab77ab9ec3b5c514f27bbb84b22efa4" title="Identifies reviewers whose absence would make a full assignment impossible.">getRiskyReviewers()</a> if enabled.</li>
+<li>Writes the results to a CSV file with <a class="el" href="output__writer_8cpp.html#a1c5d0f295d4051f5989cd59abc986b4c" title="Writes the assignment results and risk analysis output to a CSV file.">writeOutputCSV()</a>.</li>
 </ol>
-<p>In batch mode, <code>outputPathOverride</code> is used as the exact output path. In interactive menu mode, the path is derived from control.OutputFileName using a relative path convention.</p>
+<p>The output file name is determined as follows:</p><ul>
+<li>If <code>outputPathOverride</code> is non-empty, it is used as the output file name.</li>
+<li>Otherwise, control.OutputFileName is used.</li>
+</ul>
+<p>The final output path is then constructed automatically:</p><ul>
+<li>"../../results/" for normal execution</li>
+<li>"../../results/risk/" when only risk analysis is performed</li>
+</ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">submissions</td><td>List of paper submissions. </td></tr>
-    <tr><td class="paramname">reviewers</td><td>List of available reviewers. </td></tr>
+    <tr><td class="paramname">submissions</td><td>List of submissions. </td></tr>
+    <tr><td class="paramname">reviewers</td><td>List of reviewers. </td></tr>
     <tr><td class="paramname">params</td><td>Problem parameters. </td></tr>
     <tr><td class="paramname">control</td><td>Execution control options. </td></tr>
-    <tr><td class="paramname">outputPathOverride</td><td>If non-empty, overrides the output file path entirely (used in batch mode). Defaults to empty string.</td></tr>
+    <tr><td class="paramname">outputPathOverride</td><td>Optional output file name override. If non-empty, it replaces control.OutputFileName, but the output directory is still determined automatically by the pipeline.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Complexity: O(R * V * E^2) where R is the number of reviewers (risk analysis iterations), V is the number of graph vertices, and E is the number of edges. Without risk analysis the complexity is O(V * E^2). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity: O(R * V * E^2), where R is the number of reviewers considered during risk analysis, V is the number of graph vertices, and E is the number of graph edges. Without risk analysis, the complexity is O(V * E^2). </dd></dl>
 
 </div>
 </div>

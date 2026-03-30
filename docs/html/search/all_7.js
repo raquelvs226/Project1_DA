@@ -11,7 +11,7 @@ var searchData=
   ['getindegree_8',['getIndegree',['../classVertex.html#a25642875df28caa2195bad5a9ae44683',1,'Vertex']]],
   ['getinfo_9',['getInfo',['../classVertex.html#a48eae2f7af2362634adab02b7b2dbec6',1,'Vertex']]],
   ['getlow_10',['getLow',['../classVertex.html#a3b8e12b4d9805979321212dd6db05961',1,'Vertex']]],
-  ['getmatchdomain_11',['getmatchdomain',['../matching_8h.html#ae1f506426a36f29dea658ec8fc686519',1,'getMatchDomain(const Reviewer &amp;r, const Submission &amp;s, const Control &amp;control):&#160;matching.cpp'],['../matching_8cpp.html#ae1f506426a36f29dea658ec8fc686519',1,'getMatchDomain(const Reviewer &amp;r, const Submission &amp;s, const Control &amp;control):&#160;matching.cpp'],['../classEdge.html#af71d661925aeadcbb6889bf911bf4e89',1,'Edge::getMatchDomain()']]],
+  ['getmatchdomain_11',['getmatchdomain',['../matching_8h.html#aecbbb8a3993119712df2450505b8d2ca',1,'getMatchDomain(const Reviewer &amp;r, const Submission &amp;s, const Control &amp;control, const Parameters &amp;params):&#160;matching.cpp'],['../matching_8cpp.html#aecbbb8a3993119712df2450505b8d2ca',1,'getMatchDomain(const Reviewer &amp;r, const Submission &amp;s, const Control &amp;control, const Parameters &amp;params):&#160;matching.cpp'],['../classEdge.html#af71d661925aeadcbb6889bf911bf4e89',1,'Edge::getMatchDomain()']]],
   ['getnum_12',['getNum',['../classVertex.html#ab2916c006fa35b918910a2232095e785',1,'Vertex']]],
   ['getnumvertex_13',['getNumVertex',['../classGraph.html#a0853eac15cdf0f06d63f4b8a7820ec71',1,'Graph']]],
   ['getorig_14',['getOrig',['../classEdge.html#a40fc1470c5339203defca19b67c2535b',1,'Edge']]],

@@ -1,5 +1,5 @@
-#ifndef PROJECT1_GENERATE_ANALYSIS_H
-#define PROJECT1_GENERATE_ANALYSIS_H
+#ifndef PROJECT1_MATCHING_H
+#define PROJECT1_MATCHING_H
 
 #include "../data.h"
 
@@ -11,29 +11,34 @@
 /**
  * @brief Determines the domain through which a reviewer matches a submission.
  *
- * The matching rules depend on the GenerateAssignments mode in the Control struct:
- * - Mode 0 or 1: Only primary reviewer expertise vs primary submission domain.
- * - Mode 2: Primary reviewer expertise vs primary or secondary submission domain.
+ * A reviewer is considered compatible with a submission according to the
+ * enabled matching rules in `Parameters`:
+ * - If `PrimaryReviewerExpertise` and `PrimarySubmissionDomain` are enabled,
+ *   the reviewer's primary domain is compared with the submission's primary domain.
+ * - If `PrimaryReviewerExpertise` and `SecondarySubmissionDomain` are enabled,
+ *   the reviewer's primary domain is compared with the submission's secondary domain
+ *   when that secondary domain exists (`s.secondary != -1`).
  *
- * @param r The reviewer.
- * @param s The submission.
- * @param control Execution control options containing the assignment mode.
- * @return The matched domain ID if compatible, or -1 if there is no match.
- *
+ * @param r The reviewer being evaluated.
+ * @param s The submission being evaluated.
+ * @param control Execution control options.
+ * @param params Configuration parameters that define which matching rules are enabled.
+ * @return The matched domain ID if the reviewer is compatible with the submission,
+ *         or -1 if no valid match exists.
  */
-int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control);
+int getMatchDomain(const Reviewer &r, const Submission &s, const Control &control, const Parameters &params);
 
 /**
  * @brief Checks whether a reviewer is compatible with a submission.
  *
- * A convenience wrapper around getMatchDomain() that returns a boolean.
+ * This is a convenience wrapper around getMatchDomain().
  *
- * @param r The reviewer.
- * @param s The submission.
- * @param control Execution control options containing the assignment mode.
- * @return true if the reviewer can review the submission, false otherwise.
- *
+ * @param r The reviewer being evaluated.
+ * @param s The submission being evaluated.
+ * @param control Execution control options.
+ * @param params Configuration parameters that define which matching rules are enabled.
+ * @return true if the reviewer is compatible with the submission, false otherwise.
  */
-bool isCompatible(const Reviewer &r, const Submission &s, const Control &control);
+bool isCompatible(const Reviewer &r, const Submission &s, const Control &control, const Parameters &params);
 
-#endif //PROJECT1_GENERATE_ANALYSIS_H
+#endif // PROJECT1_MATCHING_H

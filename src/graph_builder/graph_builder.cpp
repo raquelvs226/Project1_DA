@@ -38,7 +38,7 @@ Graph<int>* buildGraph(vector<Submission> &submissions,
 
     for (int i = 0; i < (int)reviewers.size(); i++) {
         for (int j = 0; j < (int)submissions.size(); j++) {
-            int domain = getMatchDomain(reviewers[i], submissions[j], control);
+            int domain = getMatchDomain(reviewers[i], submissions[j], control, params);
             if (domain != -1) {
                 Vertex<int>* rv = g->findVertex(reviewerNodes[i]);
                 Vertex<int>* sv = g->findVertex(submissionNodes[j]);
