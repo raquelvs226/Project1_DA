@@ -82,12 +82,12 @@ public:
     Vertex<T> * getOrig() const;
     Edge<T> *getReverse() const;
     double getFlow() const;
-    int getMatchDomain() const;
+    int getMatchDomain() const; // Returns the domain that caused this edge (-1 if not applicable)
 
     void setSelected(bool selected);
     void setReverse(Edge<T> *reverse);
     void setFlow(double flow);
-    void setMatchDomain(int domain);
+    void setMatchDomain(int domain);  // Sets the domain that caused this edge
 
 protected:
     Vertex<T> * dest; // destination vertex
