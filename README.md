@@ -1,3 +1,50 @@
+# Design of Algorithms Project 1 - Scientific Conference Organization Tool
+
+A tool that helps organize a scientific conference by **assigning reviewers to paper submissions**, modeled as a **Maximum Flow** problem and solved with the **Edmonds-Karp** algorithm.
+
+Programming Project I — **Design of Algorithms (DA)**, L.EIC016, Spring 2026  
+Faculty of Engineering, University of Porto (FEUP)
+
+---
+
+## Description
+
+Each submission has a primary (and optionally a secondary) topic, and each reviewer has a primary (and optionally a secondary) area of expertise. The goal is to assign reviewers to submissions so that:
+
+- every submission receives **at least** `MinReviewsPerSubmission` reviews;
+- every reviewer performs **at most** `MaxReviewsPerReviewer` reviews;
+- every review respects the match between the submission's domain and the reviewer's expertise.
+
+### Flow network model
+
+```
+source ──(MaxReviewsPerReviewer)──► reviewer ──(1)──► submission ──(MinReviewsPerSubmission)──► sink
+```
+
+- The source connects to each reviewer with capacity `MaxReviewsPerReviewer`.
+- A reviewer connects to each compatible submission with capacity 1.
+- Each submission connects to the sink with capacity `MinReviewsPerSubmission`.
+
+A valid assignment exists if and only if the max flow saturates all submission-to-sink edges.
+
+## Features
+
+- **Interactive command-line menu** (load dataset, run assignments and risk analysis, view loaded file).
+- **Batch mode** for script-based execution.
+- **Input parsing and validation** of `.csv` files; invalid files are rejected with an error message.
+- **Review assignment** according to `GenerateAssignments`:
+
+  | Value | Behavior |
+  |-------|----------|
+  | 0 | Assignment is computed but not reported |
+  | 1 | Primary submission domains vs. primary reviewer expertise |
+  | 2 | Primary and secondary submission domains vs. primary reviewer expertise |
+
+- **Failure reporting**: when the minimum number of reviews can't be met, the affected submissions, their domain and the number of missing reviews are reported.
+- **Risk analysis** (`RiskAnalysis = 1`): identifies the reviewers whose absence would make a valid assignment impossible.
+- **Doxygen documentation** with time complexity of the main algorithms.
+
+
 # Datasets
 | File | Scenario |
 |---|---|
