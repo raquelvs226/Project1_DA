@@ -1,5 +1,7 @@
 # Design of Algorithms Project 1 - Scientific Conference Organization Tool
 
+## Grade: 18,4/20
+
 A tool that helps organize a scientific conference by **assigning reviewers to paper submissions**, modeled as a **Maximum Flow** problem and solved with the **Edmonds-Karp** algorithm.
 
 Programming Project I — **Design of Algorithms (DA)**, L.EIC016, Spring 2026  
